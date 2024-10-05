@@ -1,0 +1,102 @@
+<html>
+<h1>Higher Order Functions</h1>
+
+<p>
+    Higher order functions (<b>HOF</b>), is an expensive way of saying <blockquote>A function that has a function as a parameter</blockquote>
+</p>
+
+<p>
+    Since functions are first-class citizens in Kotlin, you can pass functions around as parameters.
+</p>
+
+<p>
+    Just as a regular parameter: to have a function as a parameter, you have to define its type.
+    The type of a function is defined in the following form:
+</p>
+<pre>
+    (A , B) -&gt; C
+</pre>
+<p>
+    This specifies the signature of the expected function. Between parentheses, you specify its parameter types (<b>A</b> and <b>B</b>). After the <b>-&gt;</b> you define its return type (<b>C</b>).
+</p>
+<p>
+    Functions that have no parameters are specified using empty braces, e.g. <b>() -&gt; C</b>.
+</p>
+<p>
+    Functions that have no return value are always specified with the type Unit, e.g. <b>(Int, Int) -&gt; Unit</b>
+</p>
+
+<p>
+    An example of a function definition of a higher order function:
+</p>
+
+
+<pre><code data-lang="text/x-kotlin">
+    fun theHoff( kittWristwatch: (String)->Boolean ){
+        println("Kitt, execute!")
+        val isSuccess = kittWristwatch("IncreaseSizeOfShark")
+
+        if( isSuccess ) {
+            println("Thanks Kitt!")
+        } else {
+            println("x⸑x")
+        }
+    }
+</code></pre>
+<p>
+    So, theHoff is expected a function he calls 'kittWristwatch'. This function should expect
+    a String and should return a Boolean.
+</p>
+<p>
+    A call to theHoff looks as follows
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+    val brokenWristwatch:(String) -> Boolean = { command:String ->
+        println("Sorry, I can't do that Michael")
+        false
+    }
+
+    theHoff( brokenWristwatch )
+
+</code></pre>
+
+<p>
+    Off course, this can be shortened by applying the lambda directly:
+</p>
+
+
+<pre><code data-lang="text/x-kotlin">
+    theHoff{ command ->
+        println("Sorry, I can't do that Michael")
+        false
+    }
+</code></pre>
+<p>
+    <b>Notice the absence of braces.</b> If the lambda is the only argument to that call, the parentheses can be omitted entirely.
+</p>
+
+<p>
+    You can read more about Kotlin HOF in the <a href="https://kotlinlang.org/docs/reference/lambdas.html#higher-order-functions">Kotlin reference</a>.
+</p>
+
+
+<h2>Assignment</h2>
+<p>
+    Now for the assignment we want you to write a Stopwatch object.
+    The Stopwatch object has a method which will measure the execution time of a given function.
+</p>
+<p>
+    It has the following requirements, it:
+</p>
+
+<ul>
+    <li>is named "elapse"</li>
+    <li>will execute the given function. The given function should not expect any parameters nor have any output (=Unit)</li>
+    <li>will return a the duration of that function in ms as a Long</li>
+</ul>
+
+<br>
+</html>
+<div class='hint'> Use 'System.currentTimeMillis()' for getting the current time.</div>
+

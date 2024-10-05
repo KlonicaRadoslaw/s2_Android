@@ -1,0 +1,57 @@
+<html>
+<h1>Infix functions</h1>
+
+<p>
+    Example of the usage of an infix function looks like this:
+</p>
+
+<pre><code>
+    myDog eats "munchies"
+</code></pre>
+<p>
+    <b>eats</b> is in this example an infix function. It is a member function of <b>myDog</b> and
+    receives one argument <b>"munchies"</b>.
+</p>
+
+<p>
+    An infix function is a function that
+    <ul>
+    <li>Is either a member function or extension function</li>
+    <li>Has a single parameter</li>
+    <li>The parameter is <b>not</b> a <b>vararg</b> nor has a <b>default value</b></b></li>
+</ul>
+(Extension functions will be discussed later on)<br/>
+</p>
+
+<p>
+    To define the infix function above, you would do the following:
+</p>
+<pre><code  data-lang="text/x-kotlin">
+    class Dog{
+        infix fun eats(food:String) = println("Eating $food")
+    }
+</code></pre>
+<p>
+    By preceding the function with the keyword <b>infix</b> and can be used as an infix function.
+</p>
+<p>
+    An example of an infix function that is already present within Kotlin would be the <b>to</b> function (used for example when creating a Map) : <br/>
+    <code  data-lang="text/x-kotlin"> "a" to 7</code><br/>
+    This will call a <b>to()</b> method on <b>String</b> to produce a <b>Pair</b> object containing "a" and 7. (This also involves extension functions and generics)
+</p>
+
+<p>
+    Read more at this <a href="https://kotlinlang.org/docs/reference/functions.html#infix-notation">Kotlin reference</a>
+</p>
+
+<h2>Assignment</h2>
+
+
+Create a class <b>MyNum</b> that has
+<ul>
+    <li>An <b>Int</b> value passed in its constructor</li>
+    <li>An <b>infix</b> method <b>add</b> accepting an integer, which returns the sum of the class value and the parameter</li>
+</ul>
+
+<br>
+</html>

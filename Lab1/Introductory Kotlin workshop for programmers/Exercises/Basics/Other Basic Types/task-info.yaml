@@ -1,0 +1,24 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 63
+        length: 26
+        placeholder_text: //Write the assignment here
+        initial_state:
+          length: 27
+          offset: 63
+        initialized_from_dependency: false
+        encrypted_possible_answer: Q9tU3yNP7nzjLDDg/06Bo+sswVvrQTqvWy9PE64M/NhdTbS+u7OWG5rbgq4B22nR6VQBGfUi+acXxJJA3M1IkwAZxQcfPc+0w1OOApN+uG4=
+        selected: false
+        status: Solved
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 02 Oct 2024 08:50:31 UTC"
+record: -1

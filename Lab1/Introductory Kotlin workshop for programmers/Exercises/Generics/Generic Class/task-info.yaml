@@ -1,0 +1,31 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 32
+        placeholder_text: //Implement Transport class here
+        initial_state:
+          length: 32
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: y4LUQi9LcWjHEowzhzgBkryM1ectL3AlPzorK1gk96cAxcJEpES8MDxbXaggih7S
+        selected: false
+        status: Unchecked
+      - offset: 86
+        length: 41
+        placeholder_text: //implement the catTransporter() function
+        initial_state:
+          length: 41
+          offset: 86
+        initialized_from_dependency: false
+        encrypted_possible_answer: L8aBzIHnqoAaHe/F2f1y6QXW+mkbcIzCLKMbaGnjC7+5PVSgSvZ6WqkNzFKBhYLHLwzGdeOaJtNsyNrtVaBYHA==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

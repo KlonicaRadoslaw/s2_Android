@@ -1,0 +1,24 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 381
+        placeholder_text: //Create here your classes
+        initial_state:
+          length: 26
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: 9MtVtfibxg65nQlcRt1UWvast3zOmKkdwh/yFe/JO8ZN05GpL6QbKD/37mgvqn4le4GXQPU6cLuY8HyEiVJJ4cJ2XmGyxkg7LoHvTmD+z61WCOAUUj6ozqkxi3ouogleRKe1jbnysPAHeSOrtC7FNUmBKK7JMtz0ZME5JmJNlC/49Y3cxt7rYW6EQwuHtL+HWrhJU+R4z972x+XQWvXenyQOhRVnTbkxScQcJSIWqNB0nHbKrll9Z97V3rmHdt0SuNu3vVcJJfJyOrGvBae82Sxqh9yXUI9FuSfjNfW2KCe5yuVUjfSAU1RE7O0OXSdj
+        selected: true
+        status: Solved
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 02 Oct 2024 09:00:55 UTC"
+record: -1

@@ -1,0 +1,42 @@
+<html>
+<h1>Generic functions</h1>
+
+<p>
+    Generic types are not only for classes. Functions can have them too:
+</p>
+
+<pre><code>
+    fun &lt;T&gt; doSomething(item: T): List&lt;T&gt;
+</code></pre>
+
+<p>
+    The function in the example has a generic type <b>T</b>. The generic type is always defined
+    before the function name.
+</p>
+
+<p>
+    When calling a generic function, you specify the type arguments <b>after</b> the
+    name of the function, e.g.:
+</p>
+
+<pre><code>
+    val myCat = Cat()
+    val myCatList = doSomething&lt;Cat&gt;( myCat )
+</code></pre>
+
+<p>
+You can read more at <a href="https://kotlinlang.org/docs/reference/generics.html#generic-functions">Kotlin reference</a>
+</p>
+
+<h2>Assignment</h2>
+
+<p>
+Create a function <code>isAPet( subject: T ):Boolean</code>. It will return
+    <b>True</b> if the subject is a Cat or Dog. <b>False</b> otherwise.
+</p>
+<p>
+    hint: check this <a href="https://kotlinlang.org/docs/reference/typecasts.html">Kotlin reference</a>
+</p>
+
+
+</html>

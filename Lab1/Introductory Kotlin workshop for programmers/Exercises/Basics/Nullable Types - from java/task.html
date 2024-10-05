@@ -1,0 +1,38 @@
+<html>
+<h1>Platform types</h1>
+<p>Any reference in Java may be null, which makes Kotlin's requirements of strict null-safety impractical for objects coming from Java.
+    Types of Java declarations are treated specially in Kotlin and called <b>platform types. </b></p>
+<p>A platform type is indicated by IntelliJ with an <b>exlamation mark (!)</b></p>
+
+<p>
+    When you receive a reference from a java call, you can choose to treat it as a nullable or non-nullable.
+    When you assign the reference to a non-nullable variable, an assertion will take place.
+</p>
+
+<p>
+    For example:
+</p>
+<pre><code>
+    val resultA = someJavaCall() //result is a platform type
+
+    resultA.someMethod() //throws NullPointerException if resultA is null
+
+    val resultB:String = someJavaCall() //will throw IllegalStateException if result is null
+    val resultC:String? = someJavaCall() //result is considered a nullable reference
+
+</code></pre>
+
+<h2>Assignment</h2>
+
+<p>
+Create a wrapper for the Java <code>receiveMail</code> method. Make sure it never returns null, but an
+empty list at best.
+</p>
+<p>
+    Note: to create an empty list, use <code>listOf()</code>
+</p>
+
+<p>
+Read the full manual at <a href="https://kotlinlang.org/docs/reference/java-interop.html">kotlin docs</a>
+</p>
+</html>

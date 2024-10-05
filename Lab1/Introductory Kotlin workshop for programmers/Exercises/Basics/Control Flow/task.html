@@ -1,0 +1,136 @@
+<html>
+
+<h1>Control Flow</h1>
+
+<p>There are several mechanisms for controlling the flow of your application:
+<ul>
+    <li>if</li>
+    <li>when</li>
+    <li>for</li>
+    <li>while</li>
+</ul>
+
+</p>
+
+
+<h2>If</h2>
+
+<p>
+    Just your classic if statement. Kotlin does <b>not</b> support ternary operators (<b>condition ? then : else</b>). An example:
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+    if( someTest() ) {
+        println("Test successful")
+    } else {
+        println("Test failed")
+    }
+</code></pre>
+
+
+<h2>When</h2>
+<p>
+    The <b>when</b> expression replaces the commonly used 'switch' statement.
+    It looks as following:
+</p>
+<pre><code data-lang="text/x-kotlin">
+    when (myValue) {
+        1 -> print("myValue is 1")
+        2 -> print("myValue is 2")
+        else -> { // Note the block
+            print("myValue is neither")
+        }
+    }
+</code></pre>
+<p>
+    You can use arbitrary expressions, not just constants, as branch conditions.
+    For example:
+</p>
+<pre><code data-lang="text/x-kotlin">
+    when (myObject) {
+        is Car -> print("myObject is a Car")
+        is Plane -> print("myObject is a Plane")
+        else -> { // Note the block
+            print("myObject is an UFO")
+        }
+    }
+</code></pre>
+<p>
+
+<p>
+    <code>When</code> matches each condition in order and executes the first one that matches.
+    If none match, <code>else</code> is executed.
+</p>
+
+<h2>For</h2>
+<p>
+    A for loop can range over anything that provides an iterator (collections and such).
+    Example of a for loop:
+</p>
+<pre><code data-lang="text/x-kotlin">
+    for (someVal in myCollection) {
+       println(someVal)
+    }
+</code></pre>
+<p>
+    The code block is optional if it contains only one expression.
+</p>
+
+<b>Ranges</b>
+
+<p>
+    To iterate over a range of numbers, you can use a range expression. E.g.
+</p>
+<pre><code data-lang="text/x-kotlin">
+    for (i in 1..10) {
+       println(i)
+    }
+</code></pre>
+<p>This prints 1 to 10 (including 10)</p>
+<p>For more about ranges, read this <a href="https://kotlinlang.org/docs/reference/ranges.html">Kotlin reference</a></p>
+
+
+<h2>While</h2>
+<p>Another classic. The while loop. Kotlin supports as well <code>while</code> as <code>do ... while</code></p>
+<pre><code data-lang="text/x-kotlin">
+    while( x > 0 ){
+        x--
+    }
+</code></pre>
+<pre><code data-lang="text/x-kotlin">
+    do {
+        y--
+    } while (y >0)
+</code></pre>
+
+<h2>Break/Continue</h2>
+<p>
+    And Kotlin supports the age-old <code>break</code> and <code>continue</code> operators in loops, to either
+    abort the loop, or start the next iteration respectively.
+</p>
+
+<h2>Assignment</h2>
+
+<p>
+    Complete the <code>collectGarbage()</code> method so that it
+    counts the Garbage and stores the values in the corresponding fields of the <code>GarbageCollector</code> class.
+    The categorization is as follows
+</p>
+<ul>
+    <li>recyclable = Plastic and Glass</li>
+    <li>organic = Green</li>
+    <li>burnables = Paper</li>
+    <li>chemicals = Chemicals,Oil and Batteries</li>
+</ul>
+
+<p>Note: <code>List&lt;Garbage&gt;</code> is an iterable over Garbage.
+</p>
+
+<p>For more information about Control Flow read the <a href="http://kotlinlang.org/docs/reference/control-flow.html#control-flow-if-when-for-while">Kotlin reference</a></p>
+
+
+
+
+</html>
+
+

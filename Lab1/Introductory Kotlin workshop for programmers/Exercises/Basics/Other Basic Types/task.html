@@ -1,0 +1,84 @@
+<html lang="en">
+<h1>Other Basic Types</h1>
+
+<p>Besides the String, there are of course plenty other basic types. We will quickly go over them.</p>
+
+<h2>Characters</h2>
+
+<p>
+    A single character. Defined using single quotes (').
+</p>
+<p>Example of the declaration of a character:</p>
+
+<pre><code data-lang="text/x-kotlin">
+    val myChar = 'A'
+</code></pre>
+
+<h2>Booleans</h2>
+<p>
+    A boolean has two value, true or false. Supported operators are:
+</p>
+
+<ul>
+    <li>&& : and</li>
+    <li>|| : or</li>
+    <li>! : not</li>
+</ul>
+<pre><code data-lang="text/x-kotlin">
+    val myTruth = true || false
+</code></pre>
+
+
+<h2>Numbers</h2>
+
+<p>Kotlin recognizes the following <b>Number</b> types: </p>
+<ul>
+    <li>Double</li>
+    <li>Float</li>
+    <li>Long</li>
+    <li>Int</li>
+    <li>Short</li>
+    <li>Byte</li>
+</ul>
+<p>
+    You will most likely recognize all of these.
+</p>
+
+<p>Example of the declaration of a long:</p>
+
+<pre><code data-lang="text/x-kotlin">
+    val myLong:Long= 123
+</code></pre>
+
+<h2>Arrays</h2>
+
+<p>
+    A container of certain objects that has a fixed length. Initialization example:
+    Initialization is done using the <code>arrayOf()</code> function.
+</p>
+<p>
+    You can get anD set from/to the array using <b>[i]</b>, where <b>i</b> is the index
+    starting <b>from 0</b>.
+</p>
+<p>
+    Example:
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+    val myArray = arrayOf(3,2,5,7)
+    myArray[2] = myArray[1] + myArray[3] // assign 9 to second index
+    // myArray is now [3,2,9,7]
+
+</code></pre>
+
+<p>
+You can read more at <a href="https://kotlinlang.org/docs/reference/basic-types.html">Kotlin reference</a>
+</p>
+
+<h2>Assignment</h2>
+
+<p>
+    Add all values of the array <code>myArray</code> together and store them in index <code>0</code> of myArray
+</p>
+
+</html>

@@ -1,0 +1,21 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 30
+        placeholder_text: //Implement extension function
+        initial_state:
+          length: 30
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: 2S87AC3MF1LtWha2H9nOkb8dzoDpEJ0aY0byQaqOnS5FPknWYtld7DGZw4uhz3lY
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

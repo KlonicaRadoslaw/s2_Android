@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Classes - constructors" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Classes - fields" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Control Flow" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Data Class" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Hello, World" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Imports" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Nullable Types" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Nullable Types - from java" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Other Basic Types" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Strings" />
+            <option value="$PROJECT_DIR$/Exercises/Basics/Variables" />
+            <option value="$PROJECT_DIR$/Exercises/Collections/Lists" />
+            <option value="$PROJECT_DIR$/Exercises/Collections/Map" />
+            <option value="$PROJECT_DIR$/Exercises/Extensions/Extension Function" />
+            <option value="$PROJECT_DIR$/Exercises/Extensions/Extension Function introduction" />
+            <option value="$PROJECT_DIR$/Exercises/Functions and Lambdas/Functions" />
+            <option value="$PROJECT_DIR$/Exercises/Functions and Lambdas/Higher order Functions" />
+            <option value="$PROJECT_DIR$/Exercises/Functions and Lambdas/Infix" />
+            <option value="$PROJECT_DIR$/Exercises/Functions and Lambdas/Lambda" />
+            <option value="$PROJECT_DIR$/Exercises/Generics In-depth/Variance - contravariance" />
+            <option value="$PROJECT_DIR$/Exercises/Generics In-depth/Variance - covariance" />
+            <option value="$PROJECT_DIR$/Exercises/Generics In-depth/Variance - invariant" />
+            <option value="$PROJECT_DIR$/Exercises/Generics/Generic Class" />
+            <option value="$PROJECT_DIR$/Exercises/Generics/Generic Functions" />
+            <option value="$PROJECT_DIR$/Exercises/Objects/Companion objects" />
+            <option value="$PROJECT_DIR$/Exercises/Objects/Declarations" />
+            <option value="$PROJECT_DIR$/Exercises/Objects/Expressions" />
+            <option value="$PROJECT_DIR$/Exercises/Objects/Object expressions" />
+            <option value="$PROJECT_DIR$/Exercises/Testing/Unit testing" />
+            <option value="$PROJECT_DIR$/Test Installation/Test/Check setup" />
+            <option value="$PROJECT_DIR$/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

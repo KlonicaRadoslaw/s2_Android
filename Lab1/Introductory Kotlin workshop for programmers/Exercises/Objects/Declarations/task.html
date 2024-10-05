@@ -1,0 +1,50 @@
+<html>
+<h1>Object Declarations</h1>
+<br>
+<p>When we need to implement an interface without explicitly declaring a new implementation class
+    or we want to declare a singleton object, in Kotlin we can do this by simply declaring an <b><code>object</code></b>.
+</p>
+
+<p>An <b><code>object</code> declaration looks like this :</b></p>
+<pre>
+    <code data-lang="text/x-kotlin">
+        object Utility{
+            fun formatter(){
+                ...
+            }
+        }
+    </code>
+</pre>
+<p>Or with a supertype : </p>
+<pre>
+    <code data-lang="text/x-kotlin">
+        object Utility : BaseUtilities{
+            fun formatter(){
+                ...
+            }
+        }
+    </code>
+</pre>
+<p>Couple of things to note :</p>
+<ul>
+    <li>it always has a name following the <code>object</code> keyword</li>
+    <li>an object declaration cannot be local (i.e. be nested directly inside a function).</li>
+</ul>
+
+<p>
+    You can read more about object declarations in the <a href="https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations">Kotlin reference</a>.
+</p>
+
+<h2>Assignment</h2>
+<p>
+<p>Declare the following in Task.kt:</p>
+<ul>
+    <li>
+        a singleton object named <code>Counter</code>.
+        You can declare an object by using Intellij's auto completion. While typing 'singleton' press the return key
+    </li>
+    <li> a private <code>Int</code> variable <code>count</code> with initial value <b>0</b>.</li>
+    <li> a function <code>countUp</code> that increments <code>count</code> and returns the incremented value.</li>
+</ul>
+
+</html>

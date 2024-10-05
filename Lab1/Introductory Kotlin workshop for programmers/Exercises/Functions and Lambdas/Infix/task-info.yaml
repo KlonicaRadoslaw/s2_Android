@@ -1,0 +1,21 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 33
+        placeholder_text: //Implement MyNum with infix here
+        initial_state:
+          length: 33
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: qSRPN5vaITAs7oMQcImt2xPA2csBfg4PO5UB5TtgBqrhdtMoetajjXNC+d1GFyTOCKOaoLEQiTvbR+DjGACvKDu1XLErJs8BhC/BsEF8ePb9qBdjkx7rMLZ6zGxX/CaM
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

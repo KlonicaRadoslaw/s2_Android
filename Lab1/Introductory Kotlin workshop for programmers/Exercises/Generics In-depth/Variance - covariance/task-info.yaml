@@ -1,0 +1,39 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 37
+        length: 214
+        placeholder_text: |-
+          class Carrier<T>(private var thing: T){
+              private var name:String = "unnamed"
+              fun getThing():T = thing
+          
+              fun addThing(thing:T) { this.thing = thing}
+              fun changeName(newName:String) { name = newName }
+          
+          }
+        initial_state:
+          length: 214
+          offset: 37
+        initialized_from_dependency: false
+        encrypted_possible_answer: rivZG9hGigInh8T5+eYquBmaIEljy1fYfcepK+UfdSmBdZYP6kPdNp2+9PM1HcyTE19hDQQzBkU8HzQ9Ln3bgQDvOjWzONj1qbhXGqN0F4ZbCpwzdy+AqLwDvrIB88/IcVnrK/Xxjzs1SWvxpe/AkvEaHYSoX/Ogquw3gRnEv6QGIuAEmvVbzNXB92rS0Mr3rdCbtmUxbuoDahide6D+ySFqzmu9XAHnbWHyGsaSoYZCSSFvR5EtEslGkUoX/2TX
+        selected: false
+        status: Unchecked
+      - offset: 394
+        length: 49
+        placeholder_text: //Assign a dog Carrier to the animal carrier here
+        initial_state:
+          length: 49
+          offset: 394
+        initialized_from_dependency: false
+        encrypted_possible_answer: vzS2PRsv1qvaQnQWKs4/5B7pRky9BHkWU6tyLqEZacg6kiMA1QWKW3xzx5Esl2Tr
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

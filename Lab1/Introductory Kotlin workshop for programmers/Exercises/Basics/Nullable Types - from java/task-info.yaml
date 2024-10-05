@@ -1,0 +1,27 @@
+type: edu
+files:
+  - name: src/Mail.java
+    visible: true
+    learner_created: false
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 94
+        length: 17
+        placeholder_text: //Wrap the method
+        initial_state:
+          length: 17
+          offset: 94
+        initialized_from_dependency: false
+        encrypted_possible_answer: C1jmNs2YcUmhlW4+g+/oH3ruSd9hsVWr/vWBgeylFS1bMvk5xFRjL3JXZZjLymTv
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+  - name: src/JavaMailer.java
+    visible: true
+    learner_created: false
+status: Unchecked
+record: -1

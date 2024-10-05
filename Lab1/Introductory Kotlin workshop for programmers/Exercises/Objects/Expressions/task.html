@@ -1,0 +1,66 @@
+<html>
+<h1>Object expressions</h1>
+<br>
+<p>Object expressions can come in handy when we want to create an object of a slight modification of some class, without
+    explicitly declaring a new subclass for it. This we call creating an object of anonymous class.</p>
+
+<p>Here we have an example of an object expression:</p>
+
+<pre><code>
+open class A{
+    open fun someFun(){
+        println("hello")
+    }
+
+}
+
+fun foo() {
+    val adHoc = object : A(){
+        override fun someFun(){
+            println("is it me you're looking for?")
+        }
+    }
+ }</code>
+</pre>
+<p>Code in object expressions can access properties from the enclosing scope:</p>
+<pre><code>
+
+
+interface B{
+    fun counter()
+}
+
+class FooBar() {
+
+    var count = 0
+
+    val adHoc = object : B{
+        override fun counter(){
+            count++
+        }
+    }
+ }</code>
+</pre>
+
+<p>
+    You can read more about Object Expressions at: <a href="https://kotlinlang.org/docs/reference/object-declarations.html#object-expressions">Kotlin reference</a>.
+</p>
+
+<h2>Assignment</h2><p>
+
+    <code>PrintShop</code> has a method <code>printDocument</code> that accepts a document and a <code>Printer</code>.
+    Printer is an interface.<br/> A <code>PrintShopOwner</code> has a <code>printedDocument</code> property and a <code>printIt</code>
+    function.<br/>
+    In order to print something, a <code>PrintShopOwner</code> will have to call the printDocument function from the
+    <code>PrintShop</code>.
+</p>
+
+<p>
+    Objective:
+<ul>
+    <li>create an object from the <code>Printer</code> interface and pass it into the printDocument method.</li>
+    <li>override the print method</li>
+    <li>assign document to <code>printedDocument</code> variable.</li>
+</ul>
+</p>
+</html>

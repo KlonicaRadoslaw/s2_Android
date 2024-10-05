@@ -1,0 +1,25 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 126
+        length: 53
+        placeholder_text: |
+          "replace me"
+        initial_state:
+          length: 13
+          offset: 126
+        initialized_from_dependency: false
+        encrypted_possible_answer: sntLULersOOItxrVDN/EjXYswxevE2dlhJen/2Aj/Qhq77u/cnpMYhECfT0/FwS5
+        selected: true
+        status: Solved
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 02 Oct 2024 08:48:52 UTC"
+record: -1

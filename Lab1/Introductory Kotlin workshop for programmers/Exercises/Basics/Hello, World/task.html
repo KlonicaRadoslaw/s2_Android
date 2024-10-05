@@ -1,0 +1,58 @@
+<h1>Hello!</h1>
+<p>Hello to the world of Kotlin!</p>
+
+<p>To get started we will describe a bit about functions.</p>
+
+<p>
+    Functions are declared using the <b><code>fun</code></b> keyword. Functions that are defined inside a class or object
+    are called <b>member functions</b>. Values are returned using the <b><code>return</code></b> keyword.
+</p>
+
+
+<pre><code data-lang="text/x-kotlin">
+    fun myFunction():String{
+        return "Cowabunga"
+    }
+
+</code></pre>
+<p>This is a function returning a String, as defined by the <code>:String</code> after its name</p>
+
+
+<p>If a function body contains only a single expression, you can reduce it to a <b>single-line function</b>.</p>
+
+<pre><code data-lang="text/x-kotlin">
+    fun myFunction() = "Cowabunga"
+</code></pre>
+
+<p>
+    Function parameters are provided between the "()". They always have the pattern <code>name:Type</code>
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+    fun myFunction(myParameter:Int):String{
+        return "Cowabunga nr" + myParameter
+    }
+
+</code></pre>
+
+<p>
+    To call a function, just call its name and pass the arguments between the ().
+</p>
+
+
+<pre><code data-lang="text/x-kotlin">
+    myFunction(12)
+
+</code></pre>
+
+
+
+<h2>Assignment</h2>
+<p>
+    Take a look at <a href="http://kotlinlang.org/docs/reference/basic-syntax.html#defining-functions">function syntax.</a>
+</p>
+
+<p>Have the function here return the string <code>&quot;Hello &quot; + name</code>.</p>
+
+<div class='hint'>"Hello " + name</div>
+

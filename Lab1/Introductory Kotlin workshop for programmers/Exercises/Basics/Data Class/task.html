@@ -1,0 +1,66 @@
+<h1>Data classes</h1>
+<p>
+<p>In Kotlin we can write a Data Transfer Object (DTO) with the usual functionality and utilities that will fit on one line!
+</p>
+<p>This is called a data class and is marked as data:</p>
+
+<code>data class Dto(val id: UUID, val data: String)</code>
+
+<p>    The compiler automatically derives the following members from all properties declared in the primary constructor:</p>
+
+<ul>
+    <li>
+        equals()/hashCode() pair;
+    </li>
+    <li>
+        toString() of the form "Dto(val id: UUID, val data: String)";
+    </li>
+    <li>
+       and more..
+    </li>
+
+</ul>
+<h2>Assignment: Write a Person data class</h2>
+<p>
+    Now we like you to write a <code>data</code> class. Copy the following class. Rewrite it so it becomes a <code>data</code> class
+</p>
+<pre><code data-lang="text/x-kotlin">
+class Person{
+
+    val name: String
+    val age : Int
+    val length : Double
+
+    constructor( name : String,  age : Int, length : Double ){
+        this.name = name
+        this.age = age
+        this.length = length
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Person
+
+        if (name != other.name) return false
+        if (age != other.age) return false
+        if (length != other.length) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = name.hashCode()
+        result = 31 * result + age
+        result = 31 * result + length.hashCode()
+        return result
+    }
+
+}
+</code></pre>
+<p>Like to know more? Read the section about <a href="https://kotlinlang.org/docs/reference/data-classes.html">data classes</a>. </p>
+
+</p>
+<div class='hint'>data class Person(val name: String, val age: Int, val length: Double)</div>
+

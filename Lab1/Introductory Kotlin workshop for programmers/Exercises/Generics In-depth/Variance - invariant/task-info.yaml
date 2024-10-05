@@ -1,0 +1,23 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 157
+        length: 195
+        placeholder_text: "//FIXME: assign the dogCarrier to a new variable \"myCarrier\"\
+      . The following doesn't work:\n//var myCarrier: Carrier<Animal>= dogCarrier\
+      \ \n\n//Temporary placeholder:\nvar myCarrier: Carrier<*>? = null"
+        initial_state:
+          length: 195
+          offset: 157
+        initialized_from_dependency: false
+        encrypted_possible_answer: 3XkE2DtYTp3Tz4Fye77u7TWlkiOn4VgNA637rVil8Hk6pEkFLyd/c7yOj4gydYLJ
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

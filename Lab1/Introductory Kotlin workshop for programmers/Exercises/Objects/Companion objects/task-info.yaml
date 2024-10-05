@@ -1,0 +1,21 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 55
+        length: 31
+        placeholder_text: //add the companion object here
+        initial_state:
+          length: 31
+          offset: 55
+        initialized_from_dependency: false
+        encrypted_possible_answer: x7dvAe/425hbU20JZReHnqLTVM1PwTmOrWeU7wGLaEKgj8etrv6ToMHEJNgP2rTRtzkmReac69W9v6+/6xRpt8uosk5I4zndTLJqGoVOURqJbnkj6TA2655LhSF4fxc61Lj2lhc4y3y+IntKrqD472Ab8BwWu929u5UkMz/xDhD5C3VpNSrTv7dJ50BFv0QtAqyHPyLy57drIsMeVlFHymFUGIszYxGwTztypsVRW0+/0H0hyKeNrwh9s6HDlqYa
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

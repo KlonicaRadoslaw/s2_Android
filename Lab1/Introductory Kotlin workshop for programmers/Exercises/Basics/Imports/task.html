@@ -1,0 +1,39 @@
+<html>
+<h1>Import clash</h1>
+<p>Importing classes with the same name is not allowed in Kotlin.
+    One way we can work around this issue is by omitting the import statement clashing class.
+    Problem with this approach is that the we have refer to the full path of the clashing class when declaring it.</p>
+<p>
+<pre><code>
+   import some.long.packagename.a.Foobar
+
+   val fooBar : FooBar = FooBar()
+   val fooBarB : some.long.packagename.b.FooBar = some.long.packagename.b.FooBar()
+      </code>
+</pre>
+</p>
+<p>Luckily there is a way to import multiple classes with the same name without causing compilation error.
+    In case of ambiguity we can use the keyword <b>as</b> to locally rename the clashing entity:</p>
+
+<pre><code>
+   import some.long.packagename.a.Foobar
+   import some.long.packagename.b.Foobar as FoobarB
+
+   val fooBar : FooBar = FooBar()
+   val fooBarB : FoobarB = FooBarB()
+      </code>
+</pre>
+
+<h2>Assignment</h2>
+
+<p>Add a function named <b>mapToInternalCustomer</b> to the <b>CustomerMapper</b> class.
+    This function will take a <b>domain.external.Customer</b> as a argument and returns a
+    <b>domain.internal.Customer</b> with the same <b>name</b> and <b>id</b>
+</p>
+
+<p>To improve readability, rename <b>domain.external.Customer</b> to <b>ExternalCustomer</b> by using the <b>as</b>
+    keyword.</p>
+
+<p>For more information, read the section about <a href=https://kotlinlang.org/docs/reference/packages.html#getFooBar">Imports</a>.</p>
+<p>
+</html>

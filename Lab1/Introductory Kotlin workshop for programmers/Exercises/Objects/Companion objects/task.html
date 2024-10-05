@@ -1,0 +1,65 @@
+<html>
+<h1>Companion Object</h1>
+<p>Object declaration inside a class can be marked with the <b>companion</b> keyword.</p>
+<p>The nice thing about a <code>Companion</code> object is that the functions or values declared inside it will look like they are part of the class it accompanies.</p>
+<pre>
+    <code data-lang="text/x-kotlin">
+      class SomeClass {
+
+        companion object CompanionObject {
+            fun doSomething(){
+                println("something")
+            }
+        }
+      }
+      val x = SomeClass.doSomething()
+      val actualCompanionObject = SomeClass.CompanionObject
+    </code></pre>
+
+<p>We don't even have to name the companion object:</p>
+<pre>
+    <code data-lang="text/x-kotlin">
+      class SomeClass {
+        companion object {
+            fun doSomething(){
+                println("something")
+            }
+        }
+      }
+      val x = SomeClass.doSomething()
+      val actualCompanionObject = SomeClass.Companion
+    </code></pre>
+<p></p>
+
+<h2>Assignment</h2>
+<p>
+    One use case of a <b><code>companion</code></b> object could be an implementation of the factory pattern.
+</p>
+<p>
+    The factory’s goal is to deliver a ready-to-use object to its client. The factory hides the complexity of creating
+    and selecting the right object for the job.
+</p>
+
+<p>Now it's time for you to create a companion object. </p>
+
+<p>
+    You know exactly what a <a href="https://rickandmorty.fandom.com/wiki/Plumbus">plumbus</a> is and how it’s used. Now we
+     will create a <b><code>PlumbusFactory</code></b>! The factory will create simple Plumbuses, assign each one an id,
+    and count how many have been made.
+</p>
+
+<p>
+    There currently is a Plumbus class with a private constructor (so no one create his own home-grown Plumbus). It
+    is your job to add a companion object by the name <b><code>PlumbusFactory</code></b>. This factory has two things:
+    <ol>
+      <li>A <b><code>count</code></b> property indicating how many Plumbuses have been created.</li>
+      <li>A <b><code>create()</code></b> function, which increments the <code>count</code> and returns a fresh Plumbus with an id that is equivalent
+      to the new count/</li>
+    </ol>
+</p>
+
+<p>
+    To get an idea what it will look like when used: see the commented out code in the main method.
+</p>
+
+</html>

@@ -1,0 +1,21 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 51
+        placeholder_text: //Implement the oneMinus() extension for Array<Int>
+        initial_state:
+          length: 51
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: 76UDqhxUWQt9HJspVQS9XZIrp+B7WJkg69qgaiKjsvBs8ekLuw4FHm8E5v6WhXpEfG2EIMn6Cy1LnMX1FXdoQtxHycnC1mr6kJ4twSN4VrVotCLQcXXucRo2qx0xlkiQ
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

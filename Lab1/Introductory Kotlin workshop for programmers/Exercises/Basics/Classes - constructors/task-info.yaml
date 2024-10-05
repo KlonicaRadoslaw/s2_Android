@@ -1,0 +1,24 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 296
+        placeholder_text: //Implement the Car class
+        initial_state:
+          length: 25
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: U+JdwMuJXBRGnB12C+fn/eIZTIfg143uSRVP5WGOJsVDELSsbSG5JH2cSf9vOSeO+ZqK2Z8KEOhFDyZk9c9S6PPhSa64k09PsvzyGiBSfzGJs0YpojTrT5l9ZInZiCNwot4rOilxN3JAXE104BKjgA==
+        selected: true
+        status: Solved
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 02 Oct 2024 08:53:14 UTC"
+record: -1

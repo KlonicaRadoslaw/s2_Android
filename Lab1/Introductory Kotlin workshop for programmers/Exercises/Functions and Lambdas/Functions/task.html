@@ -1,0 +1,75 @@
+<html>
+<h1>Functions</h1>
+<p>
+Functions in Kotlin are first-class citizens. This means it can be passed as an argument, returned from a function, modified
+and assigned to a variable.
+</p>
+
+<p>
+    Functions are declared using the <b><code>fun</code></b> keyword. Functions that are defined inside a class or object
+    are called <b>member functions</b>. Values are returned using the <b><code>return</code></b> keyword.
+    An example:
+</p>
+<p>
+   <pre> <code>
+        fun add(left: Int, right: Int): Int {
+            return left + right
+        }
+    </code></pre>
+This is a method accepting two parameters, 'left' and 'right', each of the type Int. It also indicates that
+it will return an Int.
+</p>
+
+<h2>Arguments</h2>
+
+
+<b>Named Arguments</b>
+
+<p>
+    When calling functions, the arguments can be named. e.g, instead of calling<br/>
+    <pre><code>add( 12, 15 )</code></pre>
+    you can call
+    <pre><code>add( left=12, right=15 )</code></pre>
+    or
+    <pre><code>add(  right=15, left=12 )</code></pre>
+</p>
+
+
+<b>Default arguments</b>
+<p>
+    Default arguments can be defined using the <b>=</b> after the type along with the value. e.g. <code>fun add(left:Int, right:Int = 0 )</code> will
+    allow you to use the add function without a second argument. If done so, the second argument will have the value <code>0</code>.
+</p>
+
+
+<b>Variable number of arguments</b>
+
+<p>
+    A function can have a variable number of arguments, using the <b><code>vararg</code></b> keyword.
+</p>
+<pre><code>
+    fun asList(vararg messages:String): List&lt;String&gt; {
+    val result = ArrayList&lt;String&gt;()
+    for (body in messages) //messages is an Array
+        result.add(body)
+    return result
+}
+</code></pre>
+<p>
+    Inside the function, the vararg parameter is seen as an <b>array</b>.
+</p>
+<p>
+    <b>Note: </b> if a vararg is not the <b>last</b> argument in the list, arguments
+    following it, can be passed by name
+</p>
+
+<h2>Assignment</h2>
+<p>
+    Create a function <code>add()</code> that takes a variable number of arguments, and
+    adds only those that are even. Subsequently returning the sum.
+</p>
+
+<p>
+    For the documentation regarding functions see <a href="https://kotlinlang.org/docs/reference/functions.html">here</a>.
+</p>
+</html>

@@ -1,0 +1,33 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 6
+        length: 46
+        placeholder_text: "ReplaceMe //Replace this with the text: TestMe"
+        initial_state:
+          length: 46
+          offset: 6
+        initialized_from_dependency: false
+        encrypted_possible_answer: wB3EAWIkjyYWYED92pjmdg==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+  - name: placeholder.png
+    visible: false
+    is_binary: true
+    learner_created: false
+  - name: check-task.png
+    visible: false
+    is_binary: true
+    learner_created: false
+  - name: main-run.png
+    visible: false
+    is_binary: true
+    learner_created: false
+status: Unchecked
+record: -1

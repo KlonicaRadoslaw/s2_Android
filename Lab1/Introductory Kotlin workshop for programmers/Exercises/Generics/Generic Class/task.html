@@ -1,0 +1,61 @@
+<html>
+<h1>Explanation</h1>
+
+<p>
+    Just like other OO programming languages, classes in Kotlin may have type parameters:
+</p>
+<pre><code data-lang="text/x-kotlin">
+    class Box&lt;T&gt;(val value: T)
+</code></pre>
+<p>
+    Here <b>T</b> is the type parameter and the property 'value' has the type T.
+    The actual type that T represents is given at implementation of the Box class.
+</p>
+
+<p>
+    In general, to create an instance of such a class, we need to provide the type arguments:
+</p>
+
+
+<pre><code data-lang="text/x-kotlin">
+    val box: Box&lt;Int&gt; = Box&lt;Int&gt;(1)
+</code></pre>
+<p>
+    This creates a box that will have an Int in the <code>value</code> field.
+</p>
+
+
+<p>
+    But if the parameters can be inferred, e.g. from the constructor arguments or by some other means, one is allowed to omit the type arguments:
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+    val box = Box(1) // 1 has type Int, so the compiler figures out that we are talking about Box&lt;Int&gt;
+</code></pre>
+
+<p>
+    In the previous example the type parameter could be anything, but it is usually desired to narrow the type. For example:
+</p>
+<pre><code data-lang="text/x-kotlin">
+    class NumberBox&lt;T:Number&gt;(val contents:T)
+</code></pre>
+
+<p>
+    In the above example, the box may only contain numbers:
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+    val box1 = NumberBox&lt;Int&gt;(123) //good
+    val box2 = NumberBox&lt;String&gt;("abc") //compiler error!
+</code></pre>
+
+
+<p>You can read more in the <a href="https://kotlinlang.org/docs/reference/generics.html">Kotlin reference</a>.</p>
+
+<h2>Assignment</h2>
+
+<p>Create a <b>Transport</b> class that has a type parameter of type Animal. I also has a property called <b>goods</b> of that type parameter.</p>
+<p>Following, create a <code>catTransporter()</code> function that returns a <code>Transport</code> instance with type <code>Cat</code></p>
+
+</html>
+

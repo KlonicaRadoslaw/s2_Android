@@ -1,0 +1,82 @@
+
+
+<html>
+<h1>String templating and Raw String</h1>
+
+<p>
+    Kotlin has support for Raw Strings and String Literals.
+</p>
+
+
+<p>
+    Raw Strings provide you the ability to use newline and spacing without escaping.
+    A raw string is delimited by<code>"""</code> (triple quote) Eg.:
+</p>
+
+
+<pre><code data-lang="text/x-kotlin">
+    var myRawString = """first line
+     second line
+     third line"""
+</code></pre>
+
+<p>
+resulting in
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+first line
+     second line
+     third line
+</code></pre>
+
+<p>
+String Templates is the ability to use variables directly in a String. Eg.:
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+    var myVar = 123
+    println("The value of myVar: $myVar")
+</code></pre>
+<p>
+resulting in
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+The value of myVar: 123
+</code></pre>
+
+<p>
+For more complex expressions in the template, you can use <code>${ ... }</code> (with accolades).
+</p>
+
+
+
+<h2>Assignment</h2>
+
+<p>Rewrite the below code using raw string and string templates</p>
+
+<pre>
+    <code>
+class LittlePony(private val name: String, private val color: String) {
+
+    override fun toString(): String {
+        return "\"Name\" : " + name + "\n" + "\"Color\" : " + color
+    }
+}
+</code>
+</pre>
+
+<p>
+Note:
+    <code>\n</code> is the classic sequence for a newline, and <code>\"</code> is used to be able to print a '<code>"</code>'
+
+</p>
+<p>Read the section about
+    <a href="https://kotlinlang.org/docs/reference/basic-types.html#strings">Strings</a>
+    &
+    <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.text/trim-margin.html#kotlin.text%24trimMargin%28kotlin.String%2C+kotlin.String%29%2FmarginPrefix">trimMargin.</a>
+</p>
+</html>
+<div class='hint'>Trim leading whitespace characters with `trimMargin()`.</div>
+

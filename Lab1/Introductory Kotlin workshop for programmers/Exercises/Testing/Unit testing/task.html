@@ -1,0 +1,34 @@
+<html>
+<h1>Unit testing</h1>
+<p>Let's turn things around! We have some code we need to cover with our tests. </p>
+<p>The common structure of a test file looks like this: </p>
+<pre>
+    <code data-lang="text/x-kotlin">
+class Test {
+
+    @Before
+    fun setup() {
+        // Everything you like to do before each test has run
+    }
+
+    @After
+    fun teardown() {
+          // Everything you like to do after each test has run
+    }
+
+    @Test
+    fun a_should_be_equal_to_a() {
+        val expected = "a"
+        val actual = "a"
+
+        assertEquals(expected, actual, "Should return equal")
+    }
+
+}
+    </code>
+</pre>
+
+<p>A test framework will call each function annotated with <code>@Test</code>. Each function tries to test an assertion.
+</p>
+<p>Complete the unit tests to test <code>UserRepository</code>.</p>
+

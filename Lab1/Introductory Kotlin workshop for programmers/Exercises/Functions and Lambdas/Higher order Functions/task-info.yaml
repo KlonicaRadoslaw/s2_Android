@@ -1,0 +1,21 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 209
+        length: 27
+        placeholder_text: //implement elapse function
+        initial_state:
+          length: 27
+          offset: 209
+        initialized_from_dependency: false
+        encrypted_possible_answer: jXypvPm5nYKun2olfOiVMTDA27BLVqXQQTlxiKLuV/VCFhFjh0tbJr1tAbNfe+2ArXnGkaN54fQ8YNTSETMuhjf2WsO3as37lkIsYZgMWr/LtlUxPMUNTDln8koUtdkvHOve/v2Bh5OkXsDm/a/zFNXYQd4ZEsCw+PfwbBsp76J476rD5OtRzG/fKDGthEPHsFmdwTgjkb75rAwXEgXSj/cOeLFOfO4Z1nqAE3WT1te4Y9+ZCqiMk019gyMbOOwi3Fm3F1iWHD47Jx4HxzyQJb2YEu0IbznmwVaj7al6+bZ8itI2pqkzF+7+eRGmFVGr
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

@@ -1,0 +1,57 @@
+<html>
+<h1>Variance</h1>
+Variance refers to how subtyping between generics relates to the actual type parameters.
+
+<p>
+    We will describe three types of variances, what they are and what use they have.
+</p>
+
+<h2>Invariance</h2>
+
+<p>When you create a generic class, it will by default be considered <b>invariant</b>.
+</p>
+
+<h2>What does this mean?</h2>
+<p>
+It means that when you have the following code:
+</p>
+
+<pre>
+    interface Animal
+
+    class Dog:Animal
+
+    class Carrier&lt;T&gt;( var thing: T)
+</pre>
+
+<p>
+    Then, even though do Dog implements Animal, you can't do the following:
+</p>
+<pre>
+    val dogCarrier : Carrier&lt;Dog&gt; = Carrier(Dog())
+    val animalCarrier : Carrier&lt;Animal&gt; = dogCarrier
+</pre>
+
+<h2>Why would they not allow this (by default)?</h2>
+
+<p>
+    Let's assume we <b>can</b> assign it, then the following would be possible:
+</p>
+
+<pre>
+    val dogCarrier : Carrier&lt;Dog&gt; = Carrier(Dog())
+    //assume this is possible for the example
+    val animalCarrier : Carrier&lt;Animal&gt; = dogCarrier
+
+    //now we can do this:
+    animalCarrier.thing = Horse()  //With Horse also implementing Animal
+</pre>
+
+
+<p>So we could put a Horse in our dogCarrier ! That is definitely unwanted</p>
+
+
+<h2>Assignment</h2>
+
+Fix the assignment of the DogCarrier to befit an invariant. i.e. <b>not</b> an animalcarrier.<br/>
+</html>

@@ -1,0 +1,21 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 22
+        length: 22
+        placeholder_text: //implement the method
+        initial_state:
+          length: 22
+          offset: 22
+        initialized_from_dependency: false
+        encrypted_possible_answer: HsJnRkvkRXYb15WR4U2/dsrdIfOSfEBybfjTrYwzmBcu7+MW7/mvdv4fbPDY6AmcHUmYzzyWCxo8fl37MMyqzjTjAqL3NZg1twBJgsqMy6h8dZ0fpa/1v4Uu+UvT2ppQL5culPZuPW+SlyNwaB9PmZvzww1jxv1y+T51L9CZ+buphG6OZDustgYZpII4ipg1
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

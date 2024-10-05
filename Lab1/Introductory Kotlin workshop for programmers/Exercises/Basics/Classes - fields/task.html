@@ -1,0 +1,113 @@
+<html>
+<h1>Properties</h1>
+
+<p>
+    Classes in Kotlin can have properties. These can be declared as mutable, using the <b>var</b> keyword or read-only using the <b>val</b> keyword.
+</p>
+<pre><code data-lang="text/x-kotlin">
+    class Animal(){
+        val nrOfLegs:Int = 0
+        var name = "Kermit"
+    }
+</code></pre>
+
+<p>
+    To use a property, you can simply refer it by name:
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+    val myAnimal = Animal()
+    myAnimal.name = "Dumbo"
+</code></pre>
+
+
+<p>
+    For declaring properties and initializing them from the primary constructor, Kotlin has a concise syntax:
+</p>
+<pre><code data-lang="text/x-kotlin">
+    class Animal(size:Int, val nrOfLegs:Int){
+        var name = "Kermit"
+    }
+</code></pre>
+<p>
+    In this example, the property 'nrOfLegs' is initialized through the constructor.
+    The 'size' parameter of the constructor however, is <b>not</b> a property.
+</p>
+
+
+<p>
+    Almost forgot: everything in Kotlin is <b>public</b> by default! If you do not want to expose something use
+    the <b>private</b> keyword. e.g.
+</p>
+
+class Animal(size:Int, private val nrOfLegs){
+    var name = "Kermit"
+}
+
+<h2>Inheritance</h2>
+<p>
+    To declare an explicit supertype, we place the type after a colon in the class header:
+</p>
+
+<pre><code data-lang="text/x-kotlin">
+    open class Animal(size: Int)
+
+    class Dog(size: Int) : Animal(size) //initialize Animal, using size
+
+</code></pre>
+
+<p>
+    If the derived class has a primary constructor, the base class should be
+    initialized right there, using the arguments from the constructor.
+</p>
+
+<p>
+    Every class in Kotlin is <b>final</b> by default. This means they can't be
+    inherited from. To allow other classes to inherit a given class, it should have the keyword
+    <b>open</b>.
+</p>
+
+<h2>Functions</h2>
+
+<p>Classes can have functions. Functions in a class are called <b>member functions</b>. They can be accessed the
+same way as properties.</p>
+
+<b>Overriding functions</b>
+
+<p>To override an inherited function, two things need to be in place</p>
+<ul>
+    <li>it needs to be <b>open</b> in the base class</li>
+    <li>the inheriting class uses the <b>override</b> keyword.</li>
+</ul>
+
+<pre><code data-lang="text/x-kotlin">
+    open class Animal(size: Int){
+        open fun eat(){ ... }
+    }
+
+    class Dog(size: Int) : Animal(size){
+        override fun eat(){ ... }
+    }
+
+
+</code></pre>
+
+<p>
+    To read more about classes, read <a href="https://kotlinlang.org/docs/reference/classes.html">Kotlin reference</a>.
+</p>
+
+<h2>Assignment</h2>
+
+<p>
+    Create a class <b>Point</b> that has one constructor parameter, <code>name:String</code>, which initializes a
+    <b>property</b>.<br/>
+    It also has a function '<b>nrOfCorners</b>' which returns an int of value <b>0</b>.
+</p>
+<p>
+    Now create a class <b>Line</b> which extends Point, and overrides its function to return <b>2</b>.
+</p>
+<p>
+    Do the same for <b>Square</b>, but have it return <b>4</b>
+</p>
+
+</html>

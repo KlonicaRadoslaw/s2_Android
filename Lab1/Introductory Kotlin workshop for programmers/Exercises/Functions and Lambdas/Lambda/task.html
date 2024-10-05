@@ -1,0 +1,59 @@
+<html>
+<h1>Lambdas</h1>
+<p>
+    Lambda expressions are function literals. This means they are not declared,
+    but passed immediately as an expression. An example of a function call with a lambda:
+</p>
+
+<pre><code>
+    max( strings, { a, b -> a.length < b.length } )
+</code></pre>
+
+<p>
+    In this example, the lambda is the second argument of the max function; the part that says:<br/>
+    <code>{ a, b -> a.length < b.length }</code> <br/>
+    This expression takes two arguments, <code>a</code> and <code>b</code>, which are inferred to be strings, and
+    returns <code>true</code> if b is longer than a.
+</p>
+
+<h2>Syntax</h2>
+<p>
+    A lambda expression is
+    <ul>
+    <li>always surrounded by curly braces,</li>
+    <li>parameter declarations in the full syntactic form go inside curly braces and have optional type annotations,</li>
+    <li>the body goes after an <code>-&gt;</code> sign.</li>
+</ul>
+And if the inferred return type of the lambda is not <code>Unit</code>, the last (or possibly single) expression inside the lambda body is treated as the return value.
+</p>
+
+
+<p>
+    If your lambda has a single parameter, you can refer to it as <b>it</b>. E.g.
+</p>
+<pre><code>
+    { a:String -> it.length }
+</code></pre>
+
+<p>
+    If a lambda parameter is unused, you can use the <code>_</code>. For example,
+    we can change the first example:
+</p>
+
+<pre><code>
+     max( strings, { _, b -> b.length == 12} )
+</code></pre>
+<p>
+    <b>Note: </b> this would be a <b>terrible</b> max function call.
+</p>
+
+
+<p>
+    You can read more about this in the <a href="https://kotlinlang.org/docs/reference/lambdas.html#lambda-expressions-and-anonymous-functions">Kotlin reference</a>
+</p>
+
+<h2>Assignment</h2>
+<p>
+    Same as the previous assignment, however, now use the <code>Array.filter()</code> (See <a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array kotlin doc</a>) method and pass a lambda to it. It might also be interesting to look at the <code>.forEach()</code> function.
+</p>
+</html>

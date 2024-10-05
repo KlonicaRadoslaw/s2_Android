@@ -1,0 +1,41 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 80
+        length: 177
+        placeholder_text: |-
+          open class Trainer<T> {
+          
+              open fun train(target: T) {
+                  throw NotImplementedError()
+              }
+          
+              open fun trainedTarget(): T {
+                  throw NotImplementedError()
+              }
+          }
+        initial_state:
+          length: 177
+          offset: 80
+        initialized_from_dependency: false
+        encrypted_possible_answer: rA+kZJnS1sQM5UjssAXaE/3wkx5PKUymyGKtMRPfYFOT+dSZWPcIfjdLYHZTT4qzztxyiYNhlUNhud1kASsk9wLhp2EsbAumv07q+eHLcICpL4HxZgmZaQGRa4kBCVnjRT1l7RnVGDLeC9LBgQxyXw==
+        selected: false
+        status: Unchecked
+      - offset: 542
+        length: 58
+        placeholder_text: //Assign the generic dog trainer to the danish dog trainer
+        initial_state:
+          length: 58
+          offset: 542
+        initialized_from_dependency: false
+        encrypted_possible_answer: oDRKoodiLo4kpyjosCtJrO7aMinbInSfnkpPJJpjWHs=
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

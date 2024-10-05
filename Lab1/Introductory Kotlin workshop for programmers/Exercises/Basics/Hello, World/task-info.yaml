@@ -1,0 +1,25 @@
+type: edu
+custom_name: "Hello, World!"
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 25
+        length: 14
+        placeholder_text: '"replace me"'
+        initial_state:
+          length: 12
+          offset: 25
+        initialized_from_dependency: false
+        encrypted_possible_answer: MrjWpzEDqs1l9gBjIx3HaQ==
+        selected: true
+        status: Solved
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 02 Oct 2024 08:43:15 UTC"
+record: -1

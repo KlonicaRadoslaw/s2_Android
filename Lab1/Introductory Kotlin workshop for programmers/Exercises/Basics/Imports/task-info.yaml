@@ -1,0 +1,37 @@
+type: edu
+files:
+  - name: src/domain/internal/Customer.kt
+    visible: true
+    learner_created: false
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 13
+        placeholder_text: //Add imports
+        initial_state:
+          length: 13
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: bZAilIM5bLSUdt2Ae5m4dvCm1j/LGAt53EGWrRK5Cggi7I5P+Yu+z9pwIbLJwzkZjgrD07SxTeJ5r6H/0doa/tgs/j/vGf/7Yi6V3S2ZHdCleZGeB/5RNBfba/c7wGUt
+        selected: false
+        status: Unchecked
+      - offset: 44
+        length: 29
+        placeholder_text: //implement here the solution
+        initial_state:
+          length: 29
+          offset: 44
+        initialized_from_dependency: false
+        encrypted_possible_answer: p8eqM8GSPTmbpocIY/Hqjzy8IpSoFipkB9ts1ujhIWhCbqL9vDkziFStJCRXpyyfUXFvv3yEqTRSnZQPgofIBN7ARTdv1RT/e+xSDnosNn2Ewq9Qrm0OMAwcPzCzxkcJ4+sjlMF9Qj6Dh6Qakp/ybf4ylyAejsQpRsAB2UOOkvnpuzCaD89Nj1vZy8wa673I
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: src/domain/external/Customer.kt
+    visible: true
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

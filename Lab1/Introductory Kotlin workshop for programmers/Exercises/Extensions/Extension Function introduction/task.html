@@ -1,0 +1,32 @@
+<html>
+<p>
+Extension Functions
+To declare an extension function, we need to prefix its name with a receiver type,
+    i.e. the type being extended.
+    The following adds a prefix function to <b>String</b>:
+</p>
+
+    <code>
+    fun String.prefix() = "prefix> $this"
+    </code>
+
+    <p>
+        The this keyword inside an extension function corresponds to the receiver object (the one that is passed before the dot). Now, we can call such a function on any String:
+    </p>
+
+
+<code>
+    "my great string".prefix()
+</code>
+<p>
+and this will return
+</p>
+<pre>
+prefix> my great string
+</pre>
+
+<h2>Assignment</h2>
+
+Create a <b>hello()</b> extension function for String that will return "hello xyz", where "xyz" was the original string.
+
+</html>

@@ -1,0 +1,21 @@
+type: edu
+files:
+  - name: src/Task.kt
+    visible: true
+    placeholders:
+      - offset: 0
+        length: 31
+        placeholder_text: //implement add() function here
+        initial_state:
+          length: 31
+          offset: 0
+        initialized_from_dependency: false
+        encrypted_possible_answer: MHp5bb7CsIRM9A5oVpkKMdMQJI9Z2oXtMxoF6pPiVqNL1eGNE89KEk5BhQC5iGew8sakLhoebfvghGADWJ782nqa/AmmKg2lWjDEp2+1nS+r2K1jStVp4dAs4KexeerIgdGdAB3fhV2s6WajQeD/mtXdcf1BlAOUO+sZo8gKU/G8iW1uxQECpLbaKlz7hYGwACn5aChGkiKwwErwLUlzMw==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+status: Unchecked
+record: -1

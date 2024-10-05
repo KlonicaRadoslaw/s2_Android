@@ -1,0 +1,91 @@
+<h1>Nullable safety</h1>
+<p>
+Kotlin's type system is aimed at eliminating the danger of null references from code, also known as the The Billion Dollar Mistake.
+</p>
+
+
+<h2>Nullable types</h2>
+<p>
+    In kotlin  the type system distinguishes between references that can hold null (<b>nullable references</b>) and those that can not.
+It does by adding a <b>question mark(?)</b> to the type
+</p>
+
+<p>
+    Example:
+    <pre><code data-lang="text/x-kotlin">
+    var a: String = "abc"
+    a = null // compilation error
+    val l = a.length // no problem
+    </code></pre>
+
+    To allow nulls, we can declare a variable as nullable string, written String?:
+    <pre><code data-lang="text/x-kotlin">
+    var b: String? = "abc"
+    b = null // ok
+    val l = b.length // ERROR: b could be null
+    </code></pre>
+
+</p>
+
+<h2>Null checks</h2>
+<p>
+    If you have a nullable reference, you can't use its properties or methods without checking
+    wether or not the reference is null beforehand. This can be done in various ways.
+</p>
+<h3>Classic if-else</h3>
+
+<pre><code data-lang="text/x-kotlin">val l = if (b != null) b.length else -1</code></pre>
+
+<h3>Safe calls</h3>
+<p>The second option is the safe call operator, written <code>?.</code>, e.g.</p>
+<code data-lang="text/x-kotlin">b?.length</code>
+<p>
+If b is not null, it will return the value of length, otherwise it will return null.
+</p>
+<p>
+You can also combine this together with <code>let</code> to have a method only execute if a reference
+    is not null.
+</p>
+<pre><code data-lang="text/x-kotlin">
+myString?.let { println(it.length) } // prints the length of the string if it exists
+</code></pre>
+<p>
+    You can also use it on the assignment side: only assign something if the reference is not null
+</p>
+<pre><code data-lang="text/x-kotlin">person?.department?.head = "John"</code></pre>
+
+
+<h3>Elvis Operator</h3>
+
+<p>
+    Instead of saying
+</p>
+<pre><code data-lang="text/x-kotlin">val l: Int = if (b != null) b.length else -1</code></pre>
+<p>
+    You can shorten it to :
+</p>
+<pre><code data-lang="text/x-kotlin">val l = b?.length ?: -1</code></pre>
+
+<h3>Not-Null Assertion (!!)</h3>
+
+<p>
+    You can force a NullPointerException (NPE) if a reference is null, by using the <b>!!</b> operator
+</p>
+<pre><code data-lang="text/x-kotlin">val x=y!!.length</code></pre>
+<p>This will throw a NPE if y is null. Use this very sparingly.</p>
+
+<h3>Safe Casts</h3>
+<p>When using safe casts, the operation will return null if the cast fails: </p>
+<pre><code data-lang="text/x-kotlin">val aInt: Int? = a as? Int</code></pre>
+
+
+<h2>Assignment</h2>
+
+<p>Rewrite the body of <code data-lang="text/x-kotlin">sendMessageToClient()</code> so it will handle the nullable Person in a Kotlin fashion.
+</p>
+<p>
+    <b>Hint: try using 'safe calls' and the '<code>.let</code>' operator</b>
+</p>
+
+<p>Read the full manual at <a href="http://kotlinlang.org/docs/reference/null-safety.html">kotlin docs</a>
+</p>

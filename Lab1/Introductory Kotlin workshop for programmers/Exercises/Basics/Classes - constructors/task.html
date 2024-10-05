@@ -1,0 +1,62 @@
+<html>
+<h1>Class definitions</h1>
+
+Classes are defined using the keyword <b><code>class</code></b>. An example of a class declaration:
+<pre><code>
+    class Person(age:Int) {
+    }
+
+</code></pre>
+
+<p>
+This is a class <b><code>Person</code></b> with a constructor that sets the field <b><code>age</code></b> .
+    A class consists of 3 parts:
+    <ul>
+    <li>class name - the name of the class </li>
+    <li>class body - the code between the curly braces</li>
+    <li>class header- everything between the class name and body</li>
+</ul>
+</p>
+<p>
+
+    if the body is empty, the curly braces can be omitted :</p>
+<pre><code>
+    class Person(age:Int)
+
+</code></pre>
+
+<p>
+    To have secondary constructors, you define these using the keyword <b><code>constructor</code></b>. E.g.
+</p>
+<pre><code>
+     class Person(age:Int) {
+        constructor(age:Int, name:String) : this(age){
+            println("I am the second constructor")
+        }
+    }
+</code></pre>
+<p>In this example the second constructor delegates to the first constructor, using the <b><code>this</code></b> keyword</p>
+
+
+<p>
+    To instantiate a class, just call it as if it is a regular function, e.g.
+</p>
+
+<pre><code>
+    val john = Person(25, "john")
+</code></pre>
+
+<h2>Assignment</h2>
+
+Create a class Car that has two constructors:
+<ul>
+    <li>
+        primary: numberOfWheels (Int) as argument
+    </li>
+
+    <li>
+        secundary: numberOfWheels and color (String) as arguments
+    </li>
+</ul>
+
+</html>

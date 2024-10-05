@@ -1,0 +1,70 @@
+<html>
+
+<h1>Covariance</h1>
+
+<h2>What does this mean</h2>
+
+Covariance means that the following is possible:
+
+<pre>
+    val dogCarrier : Carrier&lt;Dog&gt; = Carrier(Dog())
+    val animalCarrier : Carrier&lt;Animal&gt; = dogCarrier
+</pre>
+
+In other words: the ordering of the generic follows the ordering of the generic type.
+When <code>Dog</code> extends <code>Animal</code>, <code>Carrier&lt;Dog&gt;</code> can be considered to
+extend <code>Carrier&lt;Animal&gt;</code>.
+
+<h2>Why would we want this?</h2>
+
+<p>
+    Let's say you have a class <code>Carrier&lt;T&gt;</code>: and it has only methods that return <code>T</code>,
+    and there are no methods that have <code>T</code> as their arguments. In this case covariance would be desired,
+    because there would be no possibility, as by our example, to provide an <code>Animal</code> to
+    a <code>dogCarrier</code>.
+</p>
+<p>
+    For example:
+</p>
+<pre>
+    class Carrier&lt;T&gt;(private val thing: T){
+        fun getThing():T = thing
+    }
+
+
+    val dogCarrier : Carrier&lt;Dog&gt; = Carrier(Dog())
+    val animalCarrier: Carrier&lt;Animal&gt; = dogCarrier
+
+    val animal:Animal = animalCarrier.getThing()  //not a problem
+    // and there are no methods in Carrier with argument T
+
+</pre>
+<p>
+    If you have a class as described above, with only methods returning <code>T</code> and no
+    methods with <code>T</code> as argument, we call this a <b>producer</b>.
+</p>
+
+<h2>How to make a class covariant?</h2>
+
+Making a class covariant, in other words, having <code>Carrier&lt;Dog&gt;</code> to be considered
+extending <code>Carrier&lt;Animal&gt;</code>, requires you to add the keyword <b>out</b>
+
+<pre>
+    class Carrier&lt;<b>out</b> T&gt;(private val thing: T){
+        fun getThing():T = thing
+    }
+</pre>
+If you don't add <b>out</b>, kotlin will keep considering the class invariant.
+Be aware however that you can only add <b>out</b> to classes that have <b>NO methods with T as argument !</b>
+
+
+<h2>Assignment</h2>
+
+The current class is not covariant. Make it so that it can and will be covariant:
+<ul>
+    <li>Make the class a producer: remove all consumer methods</li>
+    <li>Add the right keyword</li>
+    <li>And eventually assign a dog carrier to an animal carrier</li>
+</ul>
+
+</html>

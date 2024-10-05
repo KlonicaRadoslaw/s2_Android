@@ -1,0 +1,51 @@
+<html>
+<h1>Variables</h1>
+
+Kotlin has two type of keywords to define variable declarations:
+<ul>
+    <li><b>val</b> - can only be assigned once</li>
+    <li><b>var</b> - can be re-assigned </li>
+</ul>
+
+
+<h2>Syntax</h2>
+
+<p>
+Example of declaring a variable:
+</p>
+<pre><code data-lang="text/x-kotlin">
+    var myVariable:Int = 123
+</code></pre>
+<p>As you can see, the type of the variable is <b>after</b> the variable name, seperated by a colon (:).</p>
+<p>Types can be inferred, so the following is allowed as well:</p>
+
+<pre><code data-lang="text/x-kotlin">
+    var myVariable = 123
+</code></pre>
+
+<p>Kotlin will infer that <b>myVariable</b> is of type Int</p>
+
+<p>
+    Variables can be declared inside functions, as well as outside. The latter called 'top-level' variables.
+</p>
+
+<p>
+    For more about this topic, read this <a href="https://kotlinlang.org/docs/reference/basic-syntax.html#defining-variables">Kotlin reference</a>.
+</p>
+
+<h2>Assignment</h2>
+
+<p>
+In this task the class <b>MyTask</b> will be instantiated a <b>maxNumberOfTasks</b> times.
+At each instantiation <b>printTask</b> will be invoked.
+</p>
+
+<p>
+All you need to do to make this work is to make sure of the following
+</p>
+<ul>
+    <li>maxNumberOfTasks is read only</li>
+    <li>numberOfTasks can be reassigned a new value</li>
+</ul>
+
+</html>

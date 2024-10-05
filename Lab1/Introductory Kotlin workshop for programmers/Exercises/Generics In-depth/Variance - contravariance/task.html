@@ -1,0 +1,80 @@
+<html>
+
+<h1>Contravariance</h1>
+
+<h2>What does this mean</h2>
+
+Contravariance means that the following is possible:
+
+<pre>
+    class Dog
+    class DanishDog:Dog
+
+    val dogTrainer : Trainer&lt;Dog&gt; = Trainer&lt;Dog&gt;()
+    val danishDogTrainer : Trainer&lt;DanishDog&gt; = dogTrainer
+</pre>
+
+In other words: the ordering of the generic is <b>contra</b> to the ordering of the generic type.
+When <code>DanishDog</code> extends <code>Dog</code>, <code>Trainer&lt;Dog&gt;</code> can be considered to
+extend <code>Trainer&lt;DanishDog&gt;</code>.
+
+<h2>Why would we want this?</h2>
+
+<p>
+    Let's say you have a class <code>Trainer&lt;T&gt;</code>: and it has only methods that consume <code>T</code>,
+    and there are no methods that return <code>T</code>. In this case contravariance could be desired,
+    because the methods that consume the superclass, will have no problem consuming the subclass.
+</p>
+<p>
+    For example:
+</p>
+<pre>
+    abstract class Dog(val name:String)
+    class DanishDog(name:String):Dog(name)
+
+    interface Trainer&lt;T&gt;{
+        fun train(target:T)
+    }
+
+    val dogTrainer = object:Trainer&lt;Dog&gt;{
+        override fun train(target:Dog) {
+            println("Dog ${target.name} is trained")
+        }
+    }
+
+    val danishDogTrainer:Trainer&lt;DanishDog&gt; = dogTrainer
+</pre>
+<p>
+    In this example it shoukd not be a problem to cast the dogTrainer to the danishDogTrainer. This is because it has only
+    methods consuming T, and when such a method process Dog, it has no problem processing a DanishDog.
+</p>
+<p>
+    If you have a class as described above, with only methods that have <code>T</code> as an argument and no
+    methods returning <code>T</code>, we call this a <b>consumer</b>.
+</p>
+
+<h2>How to make a class contravariant?</h2>
+
+Making a class contravariant, in other words, having <code>Trainer&lt;Dog&gt;</code> to be considered
+extending <code>Trainer&lt;DanishDog&gt;</code>, requires you to add the keyword <b>in</b>
+
+<pre>
+    class Trainer&lt;<b>in</b> T&gt;{
+        fun train(target:T)
+    }
+
+</pre>
+If you don't add <b>in</b>, kotlin will keep considering the class invariant.
+Be aware however that you can only add <b>in</b> to classes that have <b>NO methods that return T!</b>
+
+
+<h2>Assignment</h2>
+
+The current class is not contravariant. Make it so that it can and will be contravariant:
+<ul>
+    <li>Make the class a consumer: remove all producer methods</li>
+    <li>Add the right keyword</li>
+    <li>Eventually assign a generic dog trainer to a danish dog trainer to showcase the contravariance</li>
+</ul>
+
+</html>
