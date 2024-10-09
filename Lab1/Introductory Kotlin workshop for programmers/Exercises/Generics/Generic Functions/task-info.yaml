@@ -10,12 +10,17 @@ files:
           length: 22
           offset: 22
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: HsJnRkvkRXYb15WR4U2/dsrdIfOSfEBybfjTrYwzmBcu7+MW7/mvdv4fbPDY6AmcHUmYzzyWCxo8fl37MMyqzjTjAqL3NZg1twBJgsqMy6h8dZ0fpa/1v4Uu+UvT2ppQL5culPZuPW+SlyNwaB9PmZvzww1jxv1y+T51L9CZ+buphG6OZDustgYZpII4ipg1
-        selected: false
-        status: Unchecked
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: test/Tests.kt
     visible: false
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 09 Oct 2024 18:03:51 UTC"
 record: -1

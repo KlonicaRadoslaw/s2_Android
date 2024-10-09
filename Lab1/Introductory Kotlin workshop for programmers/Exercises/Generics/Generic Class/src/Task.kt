@@ -1,10 +1,12 @@
 //Implement Transport class here
+class Transport<Animal>(val goods: Animal)
 
 interface Animal
 class Dog:Animal
 class Cat:Animal
 
-//implement the catTransporter() function
+
+fun <T:Animal> catTransporter() {}
 
 fun main() {
 }

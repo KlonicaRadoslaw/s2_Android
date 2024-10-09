@@ -4,91 +4,97 @@ files:
     visible: true
     placeholders:
       - offset: 1027
-        length: 39
+        length: 9
         placeholder_text: //add here the expected test data value
         initial_state:
           length: 39
           offset: 1027
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: AZLMEKnhgAtYEXpJAs18NA==
-        selected: false
-        status: Unchecked
-      - offset: 1088
-        length: 20
+      - offset: 1058
+        length: 13
         placeholder_text: //call getAllUsers()
         initial_state:
           length: 20
           offset: 1088
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: Udw5YfMg0j8nPwGe7hTLCw==
-        selected: false
-        status: Unchecked
-      - offset: 1265
-        length: 39
+      - offset: 1228
+        length: 5
         placeholder_text: //add here the expected test data value
         initial_state:
           length: 39
           offset: 1265
         initialized_from_dependency: false
-        encrypted_possible_answer: 7tSkuYNLx/Z+e4oSiPQ9Kw==
         selected: false
-        status: Unchecked
-      - offset: 1326
-        length: 20
+        status: Solved
+        encrypted_possible_answer: 7tSkuYNLx/Z+e4oSiPQ9Kw==
+      - offset: 1255
+        length: 22
         placeholder_text: //call getUserById()
         initial_state:
           length: 20
           offset: 1326
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: RK2ogBbbTPZjNMETp4YK61zTSFZAjY0QWpACLslEOLU=
-        selected: false
-        status: Unchecked
-      - offset: 1526
+      - offset: 1457
         length: 18
         placeholder_text: //call getUserById
         initial_state:
           length: 18
           offset: 1526
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: 0SpD+MsDbhHEbOgMy0wXAYm1jGNv+ATLSRwiR/ezRfo=
-        selected: false
-        status: Unchecked
-      - offset: 1708
-        length: 39
+      - offset: 1639
+        length: 21
         placeholder_text: //add here the expected test data value
         initial_state:
           length: 39
           offset: 1708
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: GMDSJfqSI8EAD/+X6rszMbB0WWpMOOd0I8bowWCm0W0=
-        selected: false
-        status: Unchecked
-      - offset: 1769
-        length: 32
+      - offset: 1682
+        length: 41
         placeholder_text: //call filterUsersOnPermission()
         initial_state:
           length: 32
           offset: 1769
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: /iMyD1IFFBuMcRiuDAPD2BWPRWwuFn8pyIllByqOkRc=
-        selected: false
-        status: Unchecked
-      - offset: 2063
+      - offset: 2221
         length: 27
         placeholder_text: // implement here your test
         initial_state:
           length: 27
           offset: 2063
         initialized_from_dependency: false
-        encrypted_possible_answer: IDFZ1pIOv4zNH2+1PS+RHv0t94kTqhI25egoL9o/KEyHksV8C68cMT5uIt0n6ob/8BqHcg/rsA/iy4ebKpJIP1Zxqs0LfHCyfaSjxQC9ilJG1XzedszYY7xx6tpNBQzY1u+9d83NUpaajdU19fRvvA==
         selected: false
-        status: Unchecked
+        status: Solved
+        encrypted_possible_answer: IDFZ1pIOv4zNH2+1PS+RHv0t94kTqhI25egoL9o/KEyHksV8C68cMT5uIt0n6ob/8BqHcg/rsA/iy4ebKpJIP1Zxqs0LfHCyfaSjxQC9ilJG1XzedszYY7xx6tpNBQzY1u+9d83NUpaajdU19fRvvA==
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: test/Tests.kt
     visible: false
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: src/UserRepository.kt
     visible: true
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 09 Oct 2024 17:56:07 UTC"
 record: -1

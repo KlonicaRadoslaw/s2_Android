@@ -1,4 +1,4 @@
-class ReplaceMe //Replace this with the text: TestMe
+class TestMe
 
 /**
  * Main method, you should see a green arrow next to it in the sidebar.

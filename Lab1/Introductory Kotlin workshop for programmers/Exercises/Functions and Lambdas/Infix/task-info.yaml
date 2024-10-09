@@ -4,18 +4,23 @@ files:
     visible: true
     placeholders:
       - offset: 0
-        length: 33
+        length: 211
         placeholder_text: //Implement MyNum with infix here
         initial_state:
           length: 33
           offset: 0
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: qSRPN5vaITAs7oMQcImt2xPA2csBfg4PO5UB5TtgBqrhdtMoetajjXNC+d1GFyTOCKOaoLEQiTvbR+DjGACvKDu1XLErJs8BhC/BsEF8ePb9qBdjkx7rMLZ6zGxX/CaM
-        selected: false
-        status: Unchecked
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: test/Tests.kt
     visible: false
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 09 Oct 2024 17:58:46 UTC"
 record: -1

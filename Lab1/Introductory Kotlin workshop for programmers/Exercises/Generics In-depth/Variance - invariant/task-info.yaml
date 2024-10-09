@@ -12,12 +12,14 @@ files:
           length: 195
           offset: 157
         initialized_from_dependency: false
-        encrypted_possible_answer: 3XkE2DtYTp3Tz4Fye77u7TWlkiOn4VgNA637rVil8Hk6pEkFLyd/c7yOj4gydYLJ
-        selected: false
+        selected: true
         status: Unchecked
+        encrypted_possible_answer: 3XkE2DtYTp3Tz4Fye77u7TWlkiOn4VgNA637rVil8Hk6pEkFLyd/c7yOj4gydYLJ
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: test/Tests.kt
     visible: false
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
 status: Unchecked
 record: -1

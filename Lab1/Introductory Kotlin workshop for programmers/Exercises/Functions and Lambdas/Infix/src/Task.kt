@@ -1,4 +1,15 @@
 //Implement MyNum with infix here
+class MyNum{
+    var number = 0
+
+    constructor(number: Int){
+        this.number = number
+    }
+
+    infix fun add(num1: Int){
+        this.number = this.number + num1
+    }
+}
 
 
 /**
