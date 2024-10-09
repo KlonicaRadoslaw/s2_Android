@@ -4,18 +4,23 @@ files:
     visible: true
     placeholders:
       - offset: 0
-        length: 15
+        length: 630
         placeholder_text: // class Person
         initial_state:
           length: 15
           offset: 0
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: YtRti9Nre+16DtuLhrUu610Zs9C2zHuHEeLeV87e6Qnzv5Y92AvPEe0RmykVWgE6aff4zGVI48XluprRdGRypROzi78hm3A9WlMwwJM9HaI=
-        selected: false
-        status: Unchecked
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: test/Tests.kt
     visible: false
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 09 Oct 2024 07:58:43 UTC"
 record: -1

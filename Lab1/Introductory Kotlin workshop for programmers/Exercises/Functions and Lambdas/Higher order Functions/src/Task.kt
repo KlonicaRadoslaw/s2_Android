@@ -1,3 +1,5 @@
+import kotlin.system.measureTimeMillis
+
 object Stopwatch {
 
     /**
@@ -8,6 +10,9 @@ object Stopwatch {
      *
      */
     //implement elapse function
+    fun elapse(block:() -> Unit) : Long{
+        return measureTimeMillis(block)
+    }
 }
 
 fun main() {

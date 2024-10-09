@@ -4,7 +4,7 @@ files:
     visible: true
     placeholders:
       - offset: 221
-        length: 244
+        length: 114
         placeholder_text: "//this is an example of how NOT to do it in Kotlin\n\tif(person\
       \ == null) return\n\tif(person.personalInfo  == null) return\n\tif(person.personalInfo.data\
       \ == null ) return\n\tval personalData = person.personalInfo.data\n\n\tmailer.sendMessage(personalData)"
@@ -12,12 +12,17 @@ files:
           length: 244
           offset: 221
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: JvfimFTy1mov1FoGwGZvHKm+3HMS9ihC5DROVvJGJsFlg3QyLrMfkR6OBEZdRBemg3mwgbuvl9AKY8hGrlV50TJA8BbnLuCL5k+8uwIgkfo=
-        selected: false
-        status: Unchecked
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: test/Tests.kt
     visible: false
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 09 Oct 2024 08:23:43 UTC"
 record: -1

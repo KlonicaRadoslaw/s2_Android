@@ -1,10 +1,17 @@
 fun handleImmutableMap(messages: Map<String,Int>): Map<String,Int> {
-    TODO()
+    var newMap = messages.toMutableMap()
+
+    newMap["z"] = 345
+    newMap.remove("z")
+
+    return newMap.toMap()
 }
 
 fun handleMutableMap(messages: MutableMap<String,Int>): Map<String,Int> {
-  TODO()
+    messages["z"] = 345
+    messages.remove("z")
 
+    return messages.toMap()
 }
 
 /**

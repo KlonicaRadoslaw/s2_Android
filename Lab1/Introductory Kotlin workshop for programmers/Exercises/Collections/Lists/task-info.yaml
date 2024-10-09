@@ -4,28 +4,33 @@ files:
     visible: true
     placeholders:
       - offset: 68
-        length: 6
+        length: 113
         placeholder_text: TODO()
         initial_state:
           length: 6
           offset: 68
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: toMOByzKQK4UFQ+88bygcszhrv12//TrIIgQzG2FWBr4+67BlaaHZB7+2xIZHal6jGfR+cPn0HMjcbYgWk/KDQ==
-        selected: false
-        status: Unchecked
-      - offset: 147
-        length: 6
+      - offset: 254
+        length: 76
         placeholder_text: TODO()
         initial_state:
           length: 6
           offset: 147
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: MTOlUGYBQAsUBuT8q67AgjxGG/bJOW4dfrP73pgyfAvCTdmq218HCnd6WxJVFb7RETag3OX/Xu1RAX7jx6YQhn2Ut1UpT2bfJe0dmpckOWWo/gtBTrpsQarfNYCL3tzkUQSetAYEjSFGIOC0zqjjWc7Dz1ZNDZIdxLZlxZ2mnYsg01nWWmQh3v6VZInSWAtYBsYVRXyeku65IJyrBpjM8bgSdKNbNUIJdEP3YvslMuY=
-        selected: false
-        status: Unchecked
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: test/Tests.kt
     visible: false
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 09 Oct 2024 08:52:00 UTC"
 record: -1

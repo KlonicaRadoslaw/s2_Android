@@ -1,9 +1,17 @@
 fun handleImmutableList(messages: List<String>): List<String> {
-    TODO()
+    var newList = messages.toMutableList()
+
+    newList[3] = "d"
+    newList.removeAt(2)
+
+    return newList.toList()
 }
 
 fun handleMutableList(messages: MutableList<String>): List<String> {
-TODO()
+    messages[3] = "d"
+    messages.removeAt(2)
+
+    return messages.toList()
 
 }
 

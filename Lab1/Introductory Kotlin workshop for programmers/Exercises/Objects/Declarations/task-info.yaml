@@ -4,18 +4,23 @@ files:
     visible: true
     placeholders:
       - offset: 0
-        length: 26
+        length: 99
         placeholder_text: //Declare here the counter
         initial_state:
           length: 26
           offset: 0
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: YhTP1dqQh+PFaHy5sayvQwTp77KH15rpnB6EzIW4cB1EUZnH/sT1wl+vbklyDcbZqbpKGK1B4Ffinicnwk0kEm3tye718fBHOY+Ny4Xp9ao=
-        selected: false
-        status: Unchecked
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: test/Tests.kt
     visible: false
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 09 Oct 2024 09:06:42 UTC"
 record: -1

@@ -1,7 +1,8 @@
 class MailWrapper(private val mailer:JavaMailer){
 
     fun receiveMail():List<Mail> {
-        //Wrap the method
+        val mail : List<Mail>? = mailer.receiveMail()
+        return mail.orEmpty()
     }
 
 }

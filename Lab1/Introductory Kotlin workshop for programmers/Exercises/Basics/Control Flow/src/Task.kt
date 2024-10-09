@@ -1,3 +1,5 @@
+import kotlin.reflect.typeOf
+
 class GarbageCollector {
     var organic = 0
     var recyclable = 0
@@ -5,7 +7,17 @@ class GarbageCollector {
     var burnables = 0
 
     fun collectGarbage(garbage: List<Garbage>) {
-      //implement me
+      for (i in garbage){
+          when (i){
+              is Plastic -> recyclable++;
+              is Green -> organic++;
+              is Paper -> burnables++;
+              is Glass -> recyclable++;
+              is Chemicals -> chemicals++;
+              is Oil -> chemicals++;
+              is Batteries -> chemicals++;
+          }
+      }
     }
 
 }

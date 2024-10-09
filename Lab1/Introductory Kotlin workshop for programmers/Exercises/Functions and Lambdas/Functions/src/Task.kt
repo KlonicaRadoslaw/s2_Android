@@ -1,4 +1,13 @@
-//implement add() function here
+fun add(vararg numbers:Int) : Int{
+    var sum = 0
+    for (i in numbers){
+        if (i % 2 == 0){
+            sum+=i
+        }
+    }
+
+    return sum
+}
 
 /**
  * main method to play with

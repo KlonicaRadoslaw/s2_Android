@@ -2,26 +2,33 @@ type: edu
 files:
   - name: src/Mail.java
     visible: true
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: src/Task.kt
     visible: true
     placeholders:
       - offset: 94
-        length: 17
+        length: 75
         placeholder_text: //Wrap the method
         initial_state:
           length: 17
           offset: 94
         initialized_from_dependency: false
+        selected: true
+        status: Solved
         encrypted_possible_answer: C1jmNs2YcUmhlW4+g+/oH3ruSd9hsVWr/vWBgeylFS1bMvk5xFRjL3JXZZjLymTv
-        selected: false
-        status: Unchecked
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: test/Tests.kt
     visible: false
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
   - name: src/JavaMailer.java
     visible: true
+    encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Wed, 09 Oct 2024 08:35:03 UTC"
 record: -1

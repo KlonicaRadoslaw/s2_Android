@@ -1,5 +1,7 @@
 //Implement the oneMinus() extension for Array<Int>
-
+fun Array<Int>.oneMinus() : Array<Int>{
+    return this.map{ it -> 1-it}.toTypedArray()
+}
 /**
  * Usage example
  */
@@ -9,3 +11,5 @@ fun main() {
 
     minusArray.forEach { println("* $it") }
 }
+
+

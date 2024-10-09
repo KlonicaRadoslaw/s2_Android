@@ -1,5 +1,8 @@
 fun add(vararg numbers:Int):Int{
- TODO()
+
+ numbers.filter { it -> it%2==0 }
+
+  return numbers.sum()
 }
 
 /**
