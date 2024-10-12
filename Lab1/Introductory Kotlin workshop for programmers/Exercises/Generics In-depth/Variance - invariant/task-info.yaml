@@ -4,7 +4,7 @@ files:
     visible: true
     placeholders:
       - offset: 157
-        length: 195
+        length: 244
         placeholder_text: "//FIXME: assign the dogCarrier to a new variable \"myCarrier\"\
       . The following doesn't work:\n//var myCarrier: Carrier<Animal>= dogCarrier\
       \ \n\n//Temporary placeholder:\nvar myCarrier: Carrier<*>? = null"
@@ -13,7 +13,7 @@ files:
           offset: 157
         initialized_from_dependency: false
         selected: true
-        status: Unchecked
+        status: Solved
         encrypted_possible_answer: 3XkE2DtYTp3Tz4Fye77u7TWlkiOn4VgNA637rVil8Hk6pEkFLyd/c7yOj4gydYLJ
     encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
@@ -21,5 +21,8 @@ files:
     visible: false
     encrypted_text: BPrPxsoPO0ddRfXxWyDgbA==
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Sat, 12 Oct 2024 10:30:49 UTC"
 record: -1

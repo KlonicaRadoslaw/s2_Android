@@ -10,7 +10,7 @@ fun carryDogs(): Carrier<*>? {
 
     //FIXME: assign the dogCarrier to a new variable "myCarrier". The following doesn't work:
 //var myCarrier: Carrier<Animal>= dogCarrier 
-
+    val animalCarrier : Carrier<Dog> = dogCarrier
 //Temporary placeholder:
 var myCarrier: Carrier<*>? = null
 

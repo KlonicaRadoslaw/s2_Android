@@ -1,15 +1,12 @@
 abstract class Dog(val name: String)
 class DanishDog(name: String) : Dog(name)
 
-open class Trainer<T> {
+open class Trainer<in T> {
 
     open fun train(target: T) {
         throw NotImplementedError()
     }
 
-    open fun trainedTarget(): T {
-        throw NotImplementedError()
-    }
 }
 
 class UseCase {
@@ -23,5 +20,6 @@ class UseCase {
         }
 
         //Assign the generic dog trainer to the danish dog trainer
+        danishDogTrainer = dogTrainer
     }
 }
