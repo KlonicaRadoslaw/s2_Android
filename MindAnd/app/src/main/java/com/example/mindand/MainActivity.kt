@@ -44,6 +44,9 @@ import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import coil3.compose.AsyncImage
 
 import com.example.mindand.ui.theme.MindAndTheme
@@ -51,168 +54,26 @@ import com.example.mindand.ui.theme.MindAndTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             MindAndTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-//                }
-                ProfileScreenInitial()
+                MyApp()
             }
         }
     }
 }
 
 @Composable
-fun ProfileScreenInitial() {
-    val name = rememberSaveable { mutableStateOf("") }
-    val email = rememberSaveable { mutableStateOf("") }
-    val numberOfColors = rememberSaveable { mutableStateOf("") }
-    val profileImageUri = rememberSaveable { mutableStateOf<Uri?>(null) }
+fun MyApp() {
+    val navController = rememberNavController()
 
-    val isNameValid = name.value.isNotEmpty()
-    val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email.value).matches()
-    val isNumberOfColorsValid = numberOfColors.value.toIntOrNull()?.let {it in 5..10} ?: false
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
-            .verticalScroll(rememberScrollState()),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(
-            text = "MasterAnd",
-            style = MaterialTheme.typography.displayLarge,
-            modifier = Modifier.padding(bottom = 46.dp)
-        )
-
-        ProfileImageWithPicker(profileImageUri.value) { uri -> profileImageUri.value = uri }
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        OutlinedTextFieldWithError(
-            value = name.value,
-            onValueChange = { name.value = it },
-            label = "Enter name",
-            isError = !isNameValid,
-            keyboardType = KeyboardType.Text,
-            errorMessage = "Name can't be empty",
-            validate = { it.isNotEmpty() }
-        )
-        OutlinedTextFieldWithError(
-            value = email.value,
-            onValueChange = { email.value = it },
-            label = "Enter email",
-            keyboardType = KeyboardType.Email,
-            isError = !isEmailValid,
-            errorMessage = "Enter a valid email",
-            validate = { Patterns.EMAIL_ADDRESS.matcher(it).matches() }
-        )
-        OutlinedTextFieldWithError(
-            value = numberOfColors.value,
-            onValueChange = { numberOfColors.value = it },
-            label = "Enter number of colors",
-            keyboardType = KeyboardType.Number,
-            isError = !isNumberOfColorsValid,
-            errorMessage = "Number must be between 5 and 10",
-            validate = { it.toIntOrNull()?.let { it in 5..10 } ?: false }
-        )
-
-        Spacer(modifier = Modifier.height(16.dp))
-
-        Button(
-            onClick = {
-                //navigate
-            },
-            enabled = isNameValid && isEmailValid && isNumberOfColorsValid
-        ) {
-            Text("Next")
+    NavHost(navController = navController, startDestination = "start") {
+        composable("start") { StartScreen(navController) }
+        composable("profile/{name}/{imageUri}") { backStackEntry ->
+            val name = backStackEntry.arguments?.getString("name") ?: ""
+            val imageUri = backStackEntry.arguments?.getString("imageUri")
+            ProfileScreen(navController, name, imageUri)
         }
-    }
-}
-
-@Composable
-fun OutlinedTextFieldWithError(
-    value: String,
-    onValueChange: (String) -> Unit,
-    label: String,
-    keyboardType: KeyboardType,
-    isError: Boolean,
-    errorMessage: String?,
-    validate: (String) -> Boolean
-) {
-    Column {
-        OutlinedTextField(
-            value = value,
-            onValueChange = {
-                onValueChange(it)
-            },
-            label = { Text(label) },
-            singleLine = true,
-            isError = !validate(value),
-            keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
-            modifier = Modifier.fillMaxWidth()
-        )
-        if (!validate(value)) {
-            Text(
-                text = errorMessage ?: "",
-                color = MaterialTheme.colorScheme.error,
-                style = MaterialTheme.typography.bodySmall
-            )
-        }
-    }
-}
-
-@Composable
-fun ProfileImageWithPicker(
-    profileImageUri: Uri?,
-    onImagePicked: (Uri) -> Unit
-) {
-    val launcher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.GetContent(),
-        onResult = { uri -> uri?.let { onImagePicked(it) } }
-    )
-
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.size(100.dp)
-    ) {
-        if (profileImageUri == null) {
-            Image(
-                painter = painterResource(R.drawable.ic_baseline_question_mark_24),
-                contentDescription = "Profile photo",
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(CircleShape),
-                contentScale = ContentScale.Crop
-            )
-        } else {
-            AsyncImage(
-                model = profileImageUri,
-                contentDescription = "Profile photo",
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(CircleShape),
-                contentScale = ContentScale.Crop
-            )
-        }
-
-        IconButton(
-            onClick = { launcher.launch("image/*") },
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .size(24.dp)
-        ) {
-            Icon(
-                imageVector = Icons.Default.Edit,
-                contentDescription = "Pick image"
-            )
-        }
+        composable("game") { GameScreen() }
     }
 }
 
@@ -221,7 +82,8 @@ fun ProfileImageWithPicker(
 @Composable
 fun ProfileScreenInitialPreview() {
     MindAndTheme {
-        ProfileScreenInitial()
+        val navController = rememberNavController()
+        ProfileScreen(navController = navController, name = "Radek", imageUri = "")
     }
 }
 
