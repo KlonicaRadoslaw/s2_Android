@@ -9,6 +9,12 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import coil3.compose.AsyncImage
 import android.net.Uri
+import android.util.Log
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 
 @Composable
 fun ProfileScreen(navController: NavHostController, name: String, imageUri: String?) {
@@ -23,14 +29,24 @@ fun ProfileScreen(navController: NavHostController, name: String, imageUri: Stri
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        if (imageUri != null) {
-            val uri = Uri.parse(imageUri)
-            AsyncImage(
-                model = uri,
-                contentDescription = "Profile photo",
-                modifier = Modifier.size(100.dp)
-            )
-        }
+//        if (imageUri != null) {
+//            val uri = Uri.parse(Uri.decode(imageUri))
+//            AsyncImage(
+//                model = uri.toString(),
+//                contentDescription = "Profile photo",
+//                modifier = Modifier.size(100.dp)
+//            )
+//            Text(uri.toString())
+//        }
+
+        Image(
+            painter = painterResource(R.drawable.ic_baseline_question_mark_24),
+            contentDescription = "Profile photo",
+            modifier = Modifier
+                .size(100.dp)
+                .clip(CircleShape),
+            contentScale = ContentScale.Crop
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 

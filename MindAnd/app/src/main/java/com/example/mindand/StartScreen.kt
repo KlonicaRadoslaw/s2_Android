@@ -1,6 +1,7 @@
 package com.example.mindand
 
 import android.net.Uri
+import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.*
@@ -39,11 +40,12 @@ fun StartScreen(navController: NavHostController) {
         Button(
             onClick = {
                 if (name.value.isNotEmpty() && imageUri.value != null) {
-                    navController.navigate("profile/${name.value}/ddd")
+                    navController.navigate("profile/${name.value}/${Uri.encode(imageUri.value.toString())}")
                 }
             }
         ) {
             Text("Next")
         }
+        Text(imageUri.toString())
     }
 }
