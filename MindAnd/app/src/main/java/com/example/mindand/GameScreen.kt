@@ -12,11 +12,17 @@ import androidx.compose.ui.graphics.Color
 @Composable
 fun GameScreen() {
     val availableColors = listOf(Color.Red, Color.Green, Color.Blue, Color.Yellow)
+
+    // Inicjalizacja correctColors jako mutableStateListOf, z losowymi kolorami
     val correctColors = remember { mutableStateListOf<Color>().apply { addAll(selectRandomColors(availableColors)) } }
+
+    // Stan gry - licznik prób, stan wygranej, lista prób gracza i informacja zwrotna
     var attempts by remember { mutableStateOf(0) }
     var gameWon by remember { mutableStateOf(false) }
-    val guessRows = remember { mutableStateListOf<List<Color>>() }
-    val feedbackRows = remember { mutableStateListOf<List<Color>>() }
+
+    // Początkowa próba i informacje zwrotne
+    val guessRows = remember { mutableStateListOf<List<Color>>(List(4) { Color.Gray }) }
+    val feedbackRows = remember { mutableStateListOf<List<Color>>(List(4) { Color.Transparent }) }
 
     Column(
         modifier = Modifier
@@ -30,6 +36,7 @@ fun GameScreen() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Wyświetlenie listy prób
         LazyColumn {
             items(guessRows.size) { index ->
                 GameRow(
@@ -48,6 +55,7 @@ fun GameScreen() {
                         if (feedback.all { it == Color.Red }) {
                             gameWon = true
                         } else {
+                            // Dodaj nowy wiersz dla kolejnej próby
                             guessRows.add(List(4) { Color.Gray })
                             feedbackRows.add(List(4) { Color.Transparent })
                         }
@@ -58,6 +66,7 @@ fun GameScreen() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
+        // Przycisk restartu po wygranej
         if (gameWon) {
             Button(onClick = {
                 // Restart gry
@@ -65,11 +74,18 @@ fun GameScreen() {
                 attempts = 0
                 guessRows.clear()
                 feedbackRows.clear()
-                correctColors.clear()
-                correctColors.addAll(selectRandomColors(availableColors))
+                correctColors.clear() // Wyczyść wszystkie elementy z listy
+                correctColors.addAll(selectRandomColors(availableColors)) // Dodaj nowe, losowe kolory
+
+
+                // Dodaj początkowy wiersz do guessRows i feedbackRows
+                guessRows.add(List(4) { Color.Gray })
+                feedbackRows.add(List(4) { Color.Transparent })
             }) {
                 Text("Restart Game")
             }
         }
     }
 }
+
+
