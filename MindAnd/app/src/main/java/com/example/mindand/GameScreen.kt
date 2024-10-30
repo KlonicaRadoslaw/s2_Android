@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun GameScreen() {
+fun GameScreen(numberOfColors: String?) {
     val availableColors = listOf(Color.Red, Color.Green, Color.Blue, Color.Yellow)
 
 

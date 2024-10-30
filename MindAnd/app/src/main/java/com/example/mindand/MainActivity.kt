@@ -68,12 +68,16 @@ fun MyApp() {
 
     NavHost(navController = navController, startDestination = "start") {
         composable("start") { StartScreen(navController) }
-        composable("profile/{name}/{imageUri}") { backStackEntry ->
+        composable("profile/{name}/{imageUri}/{numberOfColors}") { backStackEntry ->
             val name = backStackEntry.arguments?.getString("name") ?: ""
             val imageUri = backStackEntry.arguments?.getString("imageUri")
-            ProfileScreen(navController, name, imageUri)
+            val numberOfColors = backStackEntry.arguments?.getString("numberOfColors")
+            ProfileScreen(navController, name, imageUri, numberOfColors)
         }
-        composable("game") { GameScreen() }
+        composable("game/{numberOfColors}") { backStackEntry ->
+            val numberOfColors = backStackEntry.arguments?.getString("numberOfColors")
+            GameScreen(numberOfColors)
+        }
     }
 }
 
@@ -83,7 +87,7 @@ fun MyApp() {
 fun ProfileScreenInitialPreview() {
     MindAndTheme {
         val navController = rememberNavController()
-        ProfileScreen(navController = navController, name = "Radek", imageUri = "")
+        ProfileScreen(navController = navController, name = "Radek", imageUri = "", numberOfColors = "")
     }
 }
 

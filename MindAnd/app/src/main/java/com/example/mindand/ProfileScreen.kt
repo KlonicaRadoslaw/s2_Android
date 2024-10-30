@@ -17,7 +17,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 
 @Composable
-fun ProfileScreen(navController: NavHostController, name: String, imageUri: String?) {
+fun ProfileScreen(navController: NavHostController, name: String, imageUri: String?, numberOfColors: String?) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -34,19 +34,13 @@ fun ProfileScreen(navController: NavHostController, name: String, imageUri: Stri
             AsyncImage(
                 model = uri,
                 contentDescription = "Profile photo",
-                modifier = Modifier.size(100.dp)
+                modifier = Modifier
+                    .size(100.dp)
+                    .clip(CircleShape),
+                contentScale = ContentScale.Crop
             )
 
         }
-
-        Image(
-            painter = painterResource(R.drawable.ic_baseline_question_mark_24),
-            contentDescription = "Profile photo",
-            modifier = Modifier
-                .size(100.dp)
-                .clip(CircleShape),
-            contentScale = ContentScale.Crop
-        )
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -56,7 +50,7 @@ fun ProfileScreen(navController: NavHostController, name: String, imageUri: Stri
             Button(onClick = { navController.popBackStack() }) {
                 Text("Powrót")
             }
-            Button(onClick = { navController.navigate("game") }) {
+            Button(onClick = { navController.navigate("game/${numberOfColors}") }) {
                 Text("Graj")
             }
         }
