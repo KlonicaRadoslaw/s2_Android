@@ -36,7 +36,7 @@ fun StartScreen(navController: NavHostController) {
         ProfileImageWithPicker(imageUri.value) { uri -> imageUri.value = uri }
 
         Spacer(modifier = Modifier.height(16.dp))
-        //TODO Obrazek zle sie przesyla
+
         Button(
             onClick = {
                 if (name.value.isNotEmpty() && imageUri.value != null) {
@@ -46,6 +46,6 @@ fun StartScreen(navController: NavHostController) {
         ) {
             Text("Next")
         }
-        Text(imageUri.toString())
+
     }
 }

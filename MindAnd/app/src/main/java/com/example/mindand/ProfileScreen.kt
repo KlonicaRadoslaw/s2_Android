@@ -29,15 +29,15 @@ fun ProfileScreen(navController: NavHostController, name: String, imageUri: Stri
 
         Spacer(modifier = Modifier.height(16.dp))
 
-//        if (imageUri != null) {
-//            val uri = Uri.parse(Uri.decode(imageUri))
-//            AsyncImage(
-//                model = uri.toString(),
-//                contentDescription = "Profile photo",
-//                modifier = Modifier.size(100.dp)
-//            )
-//            Text(uri.toString())
-//        }
+        if (imageUri != null) {
+            val uri = imageUri
+            AsyncImage(
+                model = uri,
+                contentDescription = "Profile photo",
+                modifier = Modifier.size(100.dp)
+            )
+
+        }
 
         Image(
             painter = painterResource(R.drawable.ic_baseline_question_mark_24),
