@@ -11,23 +11,24 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun GameScreen(numberOfColors: String?) {
-    // Parsujemy `numberOfColors` i ustawiamy domyślną wartość 4, jeśli jest null lub nie można jej przekonwertować
+    // Parsowanie `numberOfColors` i ustawianie domyślnej wartości
     val numColors = numberOfColors?.toIntOrNull()?.coerceIn(1, 8) ?: 4
 
     // Lista dostępnych kolorów
     val availableColors = listOf(Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.Magenta, Color.Cyan, Color.LightGray, Color.White)
 
-    // Lista z losowymi, poprawnymi kolorami o długości `numColors`
+    // Losowe kolory poprawnej odpowiedzi
     val correctColors = remember { mutableStateListOf<Color>().apply { addAll(selectRandomColors(availableColors, numColors)) } }
 
     // Stan gry
     var attempts by remember { mutableStateOf(0) }
     var gameWon by remember { mutableStateOf(false) }
 
-    // Inicjalizujemy listy dla wierszy zgadywania i informacji zwrotnej
+    // Wiersze zgadywania i informacji zwrotnej
     val guessRows = remember { mutableStateListOf<List<Color>>(List(numColors) { Color.Gray }) }
     val feedbackRows = remember { mutableStateListOf<List<Color>>(List(numColors) { Color.Transparent }) }
 
+    // Układ kolumny dla głównego widoku gry
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -35,63 +36,67 @@ fun GameScreen(numberOfColors: String?) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        // Nagłówek gry
         Text(text = "MasterAnd", style = MaterialTheme.typography.displayLarge)
         Text(text = "Attempts: $attempts", style = MaterialTheme.typography.bodyLarge)
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Wyświetlamy listę wierszy zgadywania
-        LazyColumn {
-            items(guessRows.size) { index ->
-                val isCurrentRowClickable = !gameWon && index == guessRows.lastIndex
-                GameRow(
-                    selectedColors = guessRows[index],
-                    feedbackColors = feedbackRows[index],
-                    clickable = isCurrentRowClickable,
-                    onSelectColorClick = { buttonIndex ->
-                        // Sprawdzenie, czy kolor można jeszcze ustawić w kółku
-                        if (isCurrentRowClickable) {
-                            guessRows[index] = guessRows[index].toMutableList().apply {
-                                set(buttonIndex, selectNextAvailableColor(availableColors, this, buttonIndex))
+        if (!gameWon) {
+            // Wyświetlamy listę wierszy zgadywania, gdy gra trwa
+            LazyColumn {
+                items(guessRows.size) { index ->
+                    val isCurrentRowClickable = !gameWon && index == guessRows.lastIndex
+                    GameRow(
+                        selectedColors = guessRows[index],
+                        feedbackColors = feedbackRows[index],
+                        clickable = isCurrentRowClickable,
+                        onSelectColorClick = { buttonIndex ->
+                            if (isCurrentRowClickable) {
+                                guessRows[index] = guessRows[index].toMutableList().apply {
+                                    set(buttonIndex, selectNextAvailableColor(availableColors, this, buttonIndex))
+                                }
+                            }
+                        },
+                        onCheckClick = {
+                            // Naciśnięcie "Check"
+                            val feedback = checkColors(guessRows[index], correctColors, Color.Gray)
+                            feedbackRows[index] = feedback
+                            attempts++
+
+                            // Sprawdzenie wygranej
+                            if (feedback.all { it == Color.Red }) {
+                                gameWon = true
+                            } else {
+                                // Dodaj nowy wiersz, jeśli gra nie jest wygrana
+                                guessRows.add(List(numColors) { Color.Gray })
+                                feedbackRows.add(List(numColors) { Color.Transparent })
                             }
                         }
-                    },
-                    onCheckClick = {
-                        // Obsługa naciśnięcia "Check"
-                        val feedback = checkColors(guessRows[index], correctColors, Color.Gray)
-                        feedbackRows[index] = feedback
-                        attempts++
-
-                        // Sprawdzenie, czy gra została wygrana
-                        if (feedback.all { it == Color.Red }) {
-                            gameWon = true
-                        } else {
-                            // Dodaj nowy wiersz, jeśli gra nie jest wygrana
-                            guessRows.add(List(numColors) { Color.Gray })
-                            feedbackRows.add(List(numColors) { Color.Transparent })
-                        }
-                    }
-                )
+                    )
+                }
             }
-        }
+        } else {
+            // Wyświetlanie przycisku restartu po wygranej gry
+            Box(
+                modifier = Modifier
+                    .fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Button(onClick = {
+                    // Restart gry
+                    gameWon = false
+                    attempts = 0
+                    guessRows.clear()
+                    feedbackRows.clear()
+                    correctColors.clear()
+                    correctColors.addAll(selectRandomColors(availableColors, numColors))
 
-        Spacer(modifier = Modifier.height(16.dp))
-
-        // Przycisk Restart
-        if (gameWon) {
-            Button(onClick = {
-                // Restart gry
-                gameWon = false
-                attempts = 0
-                guessRows.clear()
-                feedbackRows.clear()
-                correctColors.clear()
-                correctColors.addAll(selectRandomColors(availableColors, numColors))
-
-                guessRows.add(List(numColors) { Color.Gray })
-                feedbackRows.add(List(numColors) { Color.Transparent })
-            }) {
-                Text("Restart Game")
+                    guessRows.add(List(numColors) { Color.Gray })
+                    feedbackRows.add(List(numColors) { Color.Transparent })
+                }) {
+                    Text("Restart Game")
+                }
             }
         }
     }
