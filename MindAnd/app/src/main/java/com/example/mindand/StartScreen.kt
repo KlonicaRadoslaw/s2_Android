@@ -49,7 +49,7 @@ fun StartScreen(navController: NavHostController) {
         Button(
             onClick = {
                 if (name.value.isNotEmpty() && imageUri.value != null && (numberOfColors.value.toInt() in 5..8)) {
-                    navController.navigate("profile/${name.value}/${Uri.encode(imageUri.value.toString())}/${numberOfColors}")
+                    navController.navigate("profile/${name.value}/${Uri.encode(imageUri.value.toString())}/${numberOfColors.value}")
                 }
             }
         ) {
