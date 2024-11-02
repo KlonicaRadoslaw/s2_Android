@@ -88,7 +88,6 @@ fun GameScreen(numberOfColors: String?) {
                 correctColors.clear()
                 correctColors.addAll(selectRandomColors(availableColors, numColors))
 
-                // Dodanie początkowego wiersza do zgadywania
                 guessRows.add(List(numColors) { Color.Gray })
                 feedbackRows.add(List(numColors) { Color.Transparent })
             }) {
