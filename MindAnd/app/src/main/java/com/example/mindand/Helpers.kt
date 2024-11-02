@@ -9,8 +9,8 @@ fun selectNextAvailableColor(availableColors: List<Color>, selectedColors: List<
     return remainingColors[nextIndex]
 }
 
-fun selectRandomColors(availableColors: List<Color>): List<Color> {
-    return availableColors.shuffled().take(4)
+fun selectRandomColors(availableColors: List<Color>, numColors: Int): List<Color> {
+    return availableColors.shuffled().take(numColors)
 }
 
 fun checkColors(selectedColors: List<Color>, correctColors: List<Color>, notFoundColor: Color): List<Color> {
