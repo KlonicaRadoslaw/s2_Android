@@ -104,10 +104,8 @@ fun GameScreen(navController: NavHostController, numberOfColors: String?) {
                 Text("Logout")
             }
         } else {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize(),
-                contentAlignment = Alignment.Center
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Button(onClick = {
                     // Restart gry
