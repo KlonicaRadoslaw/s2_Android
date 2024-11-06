@@ -76,7 +76,7 @@ fun MyApp() {
         }
         composable("game/{numberOfColors}") { backStackEntry ->
             val numberOfColors = backStackEntry.arguments?.getString("numberOfColors")
-            GameScreen(numberOfColors)
+            GameScreen(navController,numberOfColors)
         }
     }
 }

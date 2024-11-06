@@ -1,5 +1,6 @@
 package com.example.mindand
 
+import android.net.Uri
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
@@ -8,17 +9,36 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHostController
 
 @Composable
-fun GameScreen(numberOfColors: String?) {
+fun GameScreen(navController: NavHostController, numberOfColors: String?) {
     // Parsowanie `numberOfColors` i ustawianie domyślnej wartości
     val numColors = numberOfColors?.toIntOrNull()?.coerceIn(1, 8) ?: 4
 
     // Lista dostępnych kolorów
-    val availableColors = listOf(Color.Red, Color.Green, Color.Blue, Color.Yellow, Color.Magenta, Color.Cyan, Color.LightGray, Color.White)
+    val availableColors = listOf(
+        Color.Red,
+        Color.Green,
+        Color.Blue,
+        Color.Yellow,
+        Color.Magenta,
+        Color.Cyan,
+        Color.LightGray,
+        Color.White
+    )
 
     // Losowe kolory poprawnej odpowiedzi
-    val correctColors = remember { mutableStateListOf<Color>().apply { addAll(selectRandomColors(availableColors, numColors)) } }
+    val correctColors = remember {
+        mutableStateListOf<Color>().apply {
+            addAll(
+                selectRandomColors(
+                    availableColors,
+                    numColors
+                )
+            )
+        }
+    }
 
     // Stan gry
     var attempts by remember { mutableStateOf(0) }
@@ -26,7 +46,8 @@ fun GameScreen(numberOfColors: String?) {
 
     // Wiersze zgadywania i informacji zwrotnej
     val guessRows = remember { mutableStateListOf<List<Color>>(List(numColors) { Color.Gray }) }
-    val feedbackRows = remember { mutableStateListOf<List<Color>>(List(numColors) { Color.Transparent }) }
+    val feedbackRows =
+        remember { mutableStateListOf<List<Color>>(List(numColors) { Color.Transparent }) }
 
     // Układ kolumny dla głównego widoku gry
     Column(
@@ -43,7 +64,6 @@ fun GameScreen(numberOfColors: String?) {
         Spacer(modifier = Modifier.height(16.dp))
 
         if (!gameWon) {
-            // Wyświetlamy listę wierszy zgadywania, gdy gra trwa
             LazyColumn {
                 items(guessRows.size) { index ->
                     val isCurrentRowClickable = !gameWon && index == guessRows.lastIndex
@@ -54,21 +74,21 @@ fun GameScreen(numberOfColors: String?) {
                         onSelectColorClick = { buttonIndex ->
                             if (isCurrentRowClickable) {
                                 guessRows[index] = guessRows[index].toMutableList().apply {
-                                    set(buttonIndex, selectNextAvailableColor(availableColors, this, buttonIndex))
+                                    set(
+                                        buttonIndex,
+                                        selectNextAvailableColor(availableColors, this, buttonIndex)
+                                    )
                                 }
                             }
                         },
                         onCheckClick = {
-                            // Naciśnięcie "Check"
                             val feedback = checkColors(guessRows[index], correctColors, Color.Gray)
                             feedbackRows[index] = feedback
                             attempts++
 
-                            // Sprawdzenie wygranej
                             if (feedback.all { it == Color.Red }) {
                                 gameWon = true
                             } else {
-                                // Dodaj nowy wiersz, jeśli gra nie jest wygrana
                                 guessRows.add(List(numColors) { Color.Gray })
                                 feedbackRows.add(List(numColors) { Color.Transparent })
                             }
@@ -76,8 +96,14 @@ fun GameScreen(numberOfColors: String?) {
                     )
                 }
             }
+            Button(
+                onClick = {
+                    navController.navigate("start")
+                }
+            ) {
+                Text("Logout")
+            }
         } else {
-            // Wyświetlanie przycisku restartu po wygranej gry
             Box(
                 modifier = Modifier
                     .fillMaxSize(),
@@ -96,6 +122,13 @@ fun GameScreen(numberOfColors: String?) {
                     feedbackRows.add(List(numColors) { Color.Transparent })
                 }) {
                     Text("Restart Game")
+                }
+                Button(
+                    onClick = {
+                        navController.navigate("start")
+                    }
+                ) {
+                    Text("Logout")
                 }
             }
         }
