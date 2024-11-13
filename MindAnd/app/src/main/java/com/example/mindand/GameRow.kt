@@ -1,5 +1,9 @@
 package com.example.mindand
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.scaleOut
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
@@ -22,19 +26,20 @@ fun GameRow(
     onSelectColorClick: (Int) -> Unit,
     onCheckClick: () -> Unit
 ) {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(16.dp)
-    ) {
+    Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
         SelectableColorsRow(colors = selectedColors, onClick = onSelectColorClick)
 
-        IconButton(
-            onClick = onCheckClick,
-            enabled = clickable,
-            modifier = Modifier
-                .clip(CircleShape)
-                .size(50.dp)
+        AnimatedVisibility(
+            visible = clickable,
+            enter = scaleIn(animationSpec = tween(300)),
+            exit = scaleOut(animationSpec = tween(300))
         ) {
-            Icon(imageVector = Icons.Default.Check, contentDescription = "Sprawdź kolory")
+            IconButton(
+                onClick = onCheckClick,
+                modifier = Modifier.size(50.dp)
+            ) {
+                Icon(imageVector = Icons.Default.Check, contentDescription = "Check colors")
+            }
         }
 
         FeedbackCircles(colors = feedbackColors)

@@ -1,12 +1,15 @@
 package com.example.mindand
 
 import android.net.Uri
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.EaseInOut
 import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.animation.expandVertically
+import androidx.compose.animation.fadeIn
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
@@ -32,43 +35,31 @@ fun GameScreen(navController: NavHostController, numberOfColors: String?) {
         )
     )
 
-    // Parsowanie `numberOfColors` i ustawianie domyślnej wartości
+    // Parse `numberOfColors` and set default value
     val numColors = numberOfColors?.toIntOrNull()?.coerceIn(1, 8) ?: 4
 
-    // Lista dostępnych kolorów
+    // Define available colors
     val availableColors = listOf(
-        Color.Red,
-        Color.Green,
-        Color.Blue,
-        Color.Yellow,
-        Color.Magenta,
-        Color.Cyan,
-        Color.LightGray,
-        Color.White
+        Color.Red, Color.Green, Color.Blue, Color.Yellow,
+        Color.Magenta, Color.Cyan, Color.LightGray, Color.White
     )
 
-    // Losowe kolory poprawnej odpowiedzi
+    // Set random correct colors for the game
     val correctColors = remember {
         mutableStateListOf<Color>().apply {
-            addAll(
-                selectRandomColors(
-                    availableColors,
-                    numColors
-                )
-            )
+            addAll(selectRandomColors(availableColors, numColors))
         }
     }
 
-    // Stan gry
+    // Game state
     var attempts by remember { mutableStateOf(0) }
     var gameWon by remember { mutableStateOf(false) }
 
-    // Wiersze zgadywania i informacji zwrotnej
+    // Guess and feedback rows
     val guessRows = remember { mutableStateListOf<List<Color>>(List(numColors) { Color.Gray }) }
-    val feedbackRows =
-        remember { mutableStateListOf<List<Color>>(List(numColors) { Color.Transparent }) }
+    val feedbackRows = remember { mutableStateListOf<List<Color>>(List(numColors) { Color.Transparent }) }
 
-    // Układ kolumny dla głównego widoku gry
+    // Column layout for main game screen
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -76,7 +67,7 @@ fun GameScreen(navController: NavHostController, numberOfColors: String?) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Nagłówek gry
+        // Animated Title
         Text(
             text = "MasterAnd",
             style = MaterialTheme.typography.displayLarge.copy(
@@ -94,33 +85,36 @@ fun GameScreen(navController: NavHostController, numberOfColors: String?) {
             LazyColumn {
                 items(guessRows.size) { index ->
                     val isCurrentRowClickable = !gameWon && index == guessRows.lastIndex
-                    GameRow(
-                        selectedColors = guessRows[index],
-                        feedbackColors = feedbackRows[index],
-                        clickable = isCurrentRowClickable,
-                        onSelectColorClick = { buttonIndex ->
-                            if (isCurrentRowClickable) {
-                                guessRows[index] = guessRows[index].toMutableList().apply {
-                                    set(
-                                        buttonIndex,
-                                        selectNextAvailableColor(availableColors, this, buttonIndex)
-                                    )
+
+                    AnimatedVisibility(
+                        visible = true,
+                        enter = expandVertically() + fadeIn()
+                    ) {
+                        GameRow(
+                            selectedColors = guessRows[index],
+                            feedbackColors = feedbackRows[index],
+                            clickable = isCurrentRowClickable,
+                            onSelectColorClick = { buttonIndex ->
+                                if (isCurrentRowClickable) {
+                                    guessRows[index] = guessRows[index].toMutableList().apply {
+                                        set(buttonIndex, selectNextAvailableColor(availableColors, this, buttonIndex))
+                                    }
+                                }
+                            },
+                            onCheckClick = {
+                                val feedback = checkColors(guessRows[index], correctColors, Color.Gray)
+                                feedbackRows[index] = feedback
+                                attempts++
+
+                                if (feedback.all { it == Color.Red }) {
+                                    gameWon = true
+                                } else {
+                                    guessRows.add(List(numColors) { Color.Gray })
+                                    feedbackRows.add(List(numColors) { Color.Transparent })
                                 }
                             }
-                        },
-                        onCheckClick = {
-                            val feedback = checkColors(guessRows[index], correctColors, Color.Gray)
-                            feedbackRows[index] = feedback
-                            attempts++
-
-                            if (feedback.all { it == Color.Red }) {
-                                gameWon = true
-                            } else {
-                                guessRows.add(List(numColors) { Color.Gray })
-                                feedbackRows.add(List(numColors) { Color.Transparent })
-                            }
-                        }
-                    )
+                        )
+                    }
                 }
             }
             Button(
@@ -135,7 +129,7 @@ fun GameScreen(navController: NavHostController, numberOfColors: String?) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Button(onClick = {
-                    // Restart gry
+                    // Restart the game
                     gameWon = false
                     attempts = 0
                     guessRows.clear()
