@@ -8,6 +8,12 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.animation.AnimatedContentScope
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.core.EaseInOut
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -66,17 +72,58 @@ class MainActivity : ComponentActivity() {
 fun MyApp() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "start") {
-        composable("start") { StartScreen(navController) }
-        composable("profile/{name}/{imageUri}/{numberOfColors}") { backStackEntry ->
+    NavHost(
+        navController = navController,
+        startDestination = "start"
+    ) {
+        composable(
+            "start",
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Left, tween(800, easing = EaseInOut)
+                ) + fadeIn()
+            },
+            exitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Right, tween(800, easing = EaseInOut)
+                ) + fadeOut()
+            }
+        ) { StartScreen(navController) }
+
+        composable(
+            "profile/{name}/{imageUri}/{numberOfColors}",
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Left, tween(800, easing = EaseInOut)
+                ) + fadeIn()
+            },
+            exitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Right, tween(800, easing = EaseInOut)
+                ) + fadeOut()
+            }
+        ) { backStackEntry ->
             val name = backStackEntry.arguments?.getString("name") ?: ""
             val imageUri = backStackEntry.arguments?.getString("imageUri")
             val numberOfColors = backStackEntry.arguments?.getString("numberOfColors")
             ProfileScreen(navController, name, imageUri, numberOfColors)
         }
-        composable("game/{numberOfColors}") { backStackEntry ->
+
+        composable(
+            "game/{numberOfColors}",
+            enterTransition = {
+                slideIntoContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Left, tween(800, easing = EaseInOut)
+                ) + fadeIn()
+            },
+            exitTransition = {
+                slideOutOfContainer(
+                    AnimatedContentTransitionScope.SlideDirection.Right, tween(800, easing = EaseInOut)
+                ) + fadeOut()
+            }
+        ) { backStackEntry ->
             val numberOfColors = backStackEntry.arguments?.getString("numberOfColors")
-            GameScreen(navController,numberOfColors)
+            GameScreen(navController, numberOfColors)
         }
     }
 }
@@ -90,19 +137,3 @@ fun ProfileScreenInitialPreview() {
         ProfileScreen(navController = navController, name = "Radek", imageUri = "", numberOfColors = "")
     }
 }
-
-//@Composable
-//fun Greeting(name: String, modifier: Modifier = Modifier) {
-//    Text(
-//        text = "Hello $name!",
-//        modifier = modifier
-//    )
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
-//    MindAndTheme {
-//        Greeting("Android")
-//    }
-//}
