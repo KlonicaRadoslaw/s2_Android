@@ -26,6 +26,7 @@ import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.lab2.R
 import com.example.lab2.nav.Screen
@@ -36,7 +37,7 @@ import kotlinx.coroutines.launch
 
 @SuppressLint("SuspiciousIndentation")
 @Composable
-fun ProfileScreenInitial(navController: NavController, viewModel: ProfileViewModel){
+fun ProfileScreenInitial(navController: NavController, viewModel: ProfileViewModel = hiltViewModel<ProfileViewModel>()){
     val coroutineScope = rememberCoroutineScope()
 
         Column(

@@ -49,6 +49,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.lab2.data.OfflineUserRepository
 import com.example.lab2.nav.Screen
@@ -202,9 +203,9 @@ fun checkColors(selectedColors: List<Color>, trueColors: List<Color>, notFoundCo
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GameScreenInitial(navController: NavController, viewModel: ProfileViewModel){
+fun GameScreenInitial(navController: NavController, viewModel: ProfileViewModel = hiltViewModel()) {
     val allColors: List<Color> = listOf(Color.White, Color.Gray, Color.Red, Color.Blue, Color.Cyan, Color.Black, Color.DarkGray, Color.Green, Color.LightGray, Color.Magenta, Color.Yellow)
-    val availableColors =  rememberSaveable { allColors.shuffled().take(viewModel.guessColors.intValue)}
+    val availableColors = rememberSaveable { allColors.shuffled().take(viewModel.guessColors.intValue)}
 
     val isGameActive = rememberSaveable { mutableStateOf(true) }
     val numberOfAttempts = rememberSaveable { mutableIntStateOf(1) }
@@ -343,7 +344,7 @@ fun GameScreenInitial(navController: NavController, viewModel: ProfileViewModel)
             }
         }
     ){
-        innerPadding ->
+            innerPadding ->
         LazyColumn(
             modifier = Modifier.padding(innerPadding)//.align(Alignment.Center)
         ) {
@@ -406,13 +407,16 @@ fun GameScreenInitial(navController: NavController, viewModel: ProfileViewModel)
 
 }
 
-
-
 @Preview(showBackground = true)
 @Composable
 fun Prev() {
+    val context = LocalContext.current
+    val userDatabase = UserDatabase.getDatabase(context)
+    val userDao = userDatabase.userDao()
+    val offlineUserRepository = OfflineUserRepository(userDao)
+    val viewModel = ProfileViewModel(offlineUserRepository)
+
     Lab2Theme {
-        GameScreenInitial(navController = NavController(LocalContext.current), viewModel = ProfileViewModel(OfflineUserRepository(
-            UserDatabase.getDatabase(LocalContext.current).userDao())))
+        GameScreenInitial(navController = NavController(context), viewModel = viewModel)
     }
 }

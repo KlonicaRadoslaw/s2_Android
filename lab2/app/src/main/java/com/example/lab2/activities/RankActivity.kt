@@ -26,6 +26,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.lab2.data.ProfileViewModel
 import com.example.lab2.nav.Screen
@@ -33,7 +34,7 @@ import com.example.lab2.nav.Screen
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("SuspiciousIndentation")
 @Composable
-fun RankScreenInitial(navController: NavController, viewModel: ProfileViewModel){
+fun RankScreenInitial(navController: NavController, viewModel: ProfileViewModel = hiltViewModel<ProfileViewModel>()){
     viewModel.loadUsers()
     val list = viewModel.users.collectAsState(initial = emptyList()).value
 

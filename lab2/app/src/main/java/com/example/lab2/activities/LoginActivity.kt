@@ -50,6 +50,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.example.lab2.R
@@ -105,7 +106,7 @@ private fun ProfileImageWithPicker(profileImageUri: Uri?, selectImageOnClick: ()
 @SuppressLint("Recycle")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreenInitial(navController: NavController, viewModel: ProfileViewModel) {
+fun LoginScreenInitial(navController: NavController, viewModel: ProfileViewModel = hiltViewModel<ProfileViewModel>()) {
 
     val playerName = rememberSaveable { mutableStateOf("") }
     val playerEmail = rememberSaveable { mutableStateOf("") }
@@ -119,7 +120,7 @@ fun LoginScreenInitial(navController: NavController, viewModel: ProfileViewModel
     val context = LocalContext.current
 
     fun validate(){
-        enableButton.value = nameError.value == false && emailError.value == false && colorsError.value == false && playerName.value.isNotEmpty() && isValidEmail(playerEmail.value) && (colorsToGuess.value.toInt() in 5..10)
+        enableButton.value = nameError.value == false && emailError.value == false && colorsError.value == false && playerName.value.isNotEmpty() && isValidEmail(playerEmail.value) && (colorsToGuess.value.toInt() in 5..8)
     }
 
     val imagePicker = rememberLauncherForActivityResult( contract = ActivityResultContracts.PickVisualMedia(), onResult = { selectedUri ->
